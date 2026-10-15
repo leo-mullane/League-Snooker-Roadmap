@@ -477,3 +477,5 @@ h1, .league-name, .match-hero .t, .hub-hero h1 { overflow-wrap: anywhere; hyphen
 }
 [tabindex="-1"]:focus:not(:focus-visible), h2[tabindex="-1"]:focus { outline: none; }
 @media (max-width: 480px) { .site-masthead .site-logo { font-size: 1.2rem; } .site-header-row { min-height: 56px; } }
+.frame-entry select.pick[aria-invalid="true"] { border-color: var(--loss); box-shadow: none; }
+.frame-entry .pick-new { border-color: var(--chalk); }

@@ -606,40 +606,87 @@
     var pick = $('#s-fixture');
     pick.innerHTML = due.concat(upcoming).map(function (x) { return '<option value="' + x.id + '"' + (x === f ? ' selected' : '') + '>' + esc(x.home) + ' v ' + esc(x.away) + ' · ' + shortDate(x.date) + (x.status === 'due' ? ' · result due' : '') + '</option>'; }).join('');
     function current() { return fixture(pick.value); }
-    /* Player names are typed as written on the match card. Each player has a box for
-       their highest break; captains leave it blank when there wasn't one. */
+    /* Each name is picked from everyone who has played for that team this season, or added
+       as a new name, which then joins the list for the team's next match. A name picked in
+       one slot is removed from the other slots on the same side, so nobody is entered twice. */
+    var NEW = '__new';
+    function newNames() { return store('ls-newnames') || {}; }
+    function roster(team) {
+      var seen = {}, out = [];
+      FIX.forEach(function (f) {
+        if (f.status !== 'result' || (f.home !== team && f.away !== team)) return;
+        f.games.forEach(function (g) { var id = f.home === team ? g.h : g.a; if (P[id] && !seen[P[id].name]) { seen[P[id].name] = 1; out.push(P[id].name); } });
+      });
+      (newNames()[team] || []).forEach(function (n) { if (!seen[n]) { seen[n] = 1; out.push(n); } });
+      return out.sort(function (a, b) { return a.split(' ').pop().localeCompare(b.split(' ').pop()) || a.localeCompare(b); });
+    }
+    function nameOf(side, i) {
+      var sel = $('#' + side + i); if (!sel) return '';
+      return sel.value === NEW ? $('#' + side + i + '-new').value.trim() : sel.value;
+    }
+    function refreshPicks(side) {
+      var x = current(), team = side === 'h' ? x.home : x.away, list = roster(team);
+      var chosen = [0, 1, 2, 3, 4].map(function (i) { var v = $('#' + side + i).value; return v === NEW ? '' : v; });
+      for (var i = 0; i < 5; i++) {
+        var sel = $('#' + side + i), own = sel.value;
+        var others = chosen.filter(function (v, j) { return j !== i && v; });
+        sel.innerHTML = '<option value="">Choose player</option>' +
+          list.filter(function (n) { return others.indexOf(n) === -1; }).map(function (n) { return '<option' + (n === own ? ' selected' : '') + '>' + esc(n) + '</option>'; }).join('') +
+          '<option value="' + NEW + '"' + (own === NEW ? ' selected' : '') + '>+ Add a new name</option>';
+        $('#' + side + i + '-new').hidden = sel.value !== NEW;
+      }
+    }
+    function nameCell(side, i) {
+      var who = side === 'h' ? 'Home' : 'Away';
+      return '<div class="fe fe-' + side + 'n"><label class="lbl" for="' + side + i + '">' + who + ' player ' + (i + 1) + '</label>' +
+        '<select id="' + side + i + '" class="pick" data-side="' + side + '"></select>' +
+        '<label class="sr-only" for="' + side + i + '-new">New name for ' + who.toLowerCase() + ' player ' + (i + 1) + '</label>' +
+        '<input type="text" id="' + side + i + '-new" class="pick-new" autocomplete="off" placeholder="Name as on the card" hidden></div>';
+    }
     function buildGames() {
       var x = current();
       var fr = function (id) { return '<select id="' + id + '" class="fr"><option>0</option><option selected>1</option><option>2</option></select>'; };
       $('#s-games').innerHTML = '<div class="frame-head" aria-hidden="true"><span>Home player</span><span>Break</span><span>Frames</span><span>Frames</span><span>Break</span><span>Away player</span></div>' +
         [0, 1, 2, 3, 4].map(function (i) {
           return '<fieldset class="frame-entry" data-game="' + i + '"><legend class="sr-only">Game ' + (i + 1) + '</legend>' +
-            '<div class="fe fe-hn"><label class="lbl" for="h' + i + '">Home player ' + (i + 1) + '</label><input type="text" id="h' + i + '" autocomplete="off" placeholder="Name as on the card"></div>' +
+            nameCell('h', i) +
             '<div class="fe fe-hb"><label class="lbl" for="hb' + i + '">Break</label><input type="text" id="hb' + i + '" inputmode="numeric" maxlength="3" placeholder="–"></div>' +
             '<div class="fe fe-hf"><label class="lbl" for="hf' + i + '">Frames</label>' + fr('hf' + i) + '</div>' +
             '<div class="fe fe-af"><label class="lbl" for="af' + i + '">Frames</label>' + fr('af' + i) + '</div>' +
             '<div class="fe fe-ab"><label class="lbl" for="ab' + i + '">Break</label><input type="text" id="ab' + i + '" inputmode="numeric" maxlength="3" placeholder="–"></div>' +
-            '<div class="fe fe-an"><label class="lbl" for="a' + i + '">Away player ' + (i + 1) + '</label><input type="text" id="a' + i + '" autocomplete="off" placeholder="Name as on the card"></div>' +
+            nameCell('a', i) +
             '</fieldset>';
         }).join('');
+      refreshPicks('h'); refreshPicks('a');
       $('#s-home-name').textContent = x.home; $('#s-away-name').textContent = x.away;
       tally(false);
     }
     function tally(strict) {
-      var h = 0, a = 0, msgs = [], badFrames = [], badNames = 0, badBreaks = 0;
-      $all('#s-games input').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+      var h = 0, a = 0, msgs = [], badFrames = [], badNames = 0, badBreaks = 0, dupes = [];
+      $all('#s-games input, #s-games select.pick').forEach(function (el) { el.removeAttribute('aria-invalid'); });
       for (var i = 0; i < 5; i++) {
         var hf = parseInt($('#hf' + i).value, 10), af = parseInt($('#af' + i).value, 10);
         h += hf; a += af; if (hf + af !== 2) badFrames.push(i + 1);
         ['h', 'a'].forEach(function (side) {
-          var n = $('#' + side + i), b = $('#' + side + 'b' + i), v = b.value.trim();
-          if (strict && !n.value.trim()) { n.setAttribute('aria-invalid', 'true'); badNames++; }
+          var sel = $('#' + side + i), b = $('#' + side + 'b' + i), v = b.value.trim();
+          if (strict && !nameOf(side, i)) { (sel.value === NEW ? $('#' + side + i + '-new') : sel).setAttribute('aria-invalid', 'true'); badNames++; }
           if (v && !(/^\d+$/.test(v) && +v >= 20 && +v <= 147)) { b.setAttribute('aria-invalid', 'true'); badBreaks++; }
         });
       }
+      /* A typed name must not repeat someone already on the card or in the team's list */
+      ['h', 'a'].forEach(function (side) {
+        var team = side === 'h' ? current().home : current().away, list = roster(team).map(function (n) { return n.toLowerCase(); });
+        var names = [0, 1, 2, 3, 4].map(function (i) { return nameOf(side, i).toLowerCase(); });
+        for (var i = 0; i < 5; i++) {
+          if ($('#' + side + i).value !== NEW || !names[i]) continue;
+          var clash = names.some(function (n, j) { return j !== i && n === names[i]; }) || list.indexOf(names[i]) !== -1;
+          if (clash) { $('#' + side + i + '-new').setAttribute('aria-invalid', 'true'); dupes.push(nameOf(side, i)); }
+        }
+      });
       $('#s-total').textContent = h + ' – ' + a;
       if (badFrames.length) msgs.push('Each game is best of two frames, so its frames should add up to 2. Check game' + (badFrames.length > 1 ? 's ' : ' ') + badFrames.join(', ') + '.');
-      if (badNames) msgs.push('Type the name of every player, as written on the match card.');
+      if (badNames) msgs.push('Choose a name for every player, or add a new one as written on the match card.');
+      if (dupes.length) msgs.push(dupes.join(', ') + (dupes.length > 1 ? ' are' : ' is') + ' already on the card or in the team\'s list. Choose the name from the list instead of adding it again.');
       if (badBreaks) msgs.push('Breaks should be a number between 20 and 147. Leave the box empty if there was no break.');
       var e = $('#s-games-error');
       e.hidden = !msgs.length; e.innerHTML = msgs.map(esc).join('<br>');
@@ -647,7 +694,11 @@
       return !msgs.length;
     }
     function brkOf(id) { var v = $('#' + id).value.trim(); return v ? brk(parseInt(v, 10)) : ''; }
-    $('#s-games').addEventListener('change', function () { tally(false); });
+    $('#s-games').addEventListener('change', function (e) {
+      var sel = e.target.closest('select.pick');
+      if (sel) { refreshPicks(sel.getAttribute('data-side')); if (sel.value === NEW) $('#' + sel.id + '-new').focus(); }
+      tally(false);
+    });
     $('#s-games').addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid')) tally(false); });
     pick.addEventListener('change', buildGames);
     $('#s-photo').addEventListener('change', function (e) { var f2 = e.target.files[0]; $('#s-photo-name').textContent = f2 ? 'Attached: ' + f2.name : 'No photo attached yet.'; });
@@ -660,13 +711,21 @@
         var x = current(), ok = $('#s-confirm').checked;
         var err = $('#s-confirm-error'); err.hidden = ok;
         if (!ok) return false;
+        var nn = newNames(), added = [];
+        ['h', 'a'].forEach(function (side) {
+          var team = side === 'h' ? x.home : x.away; nn[team] = nn[team] || [];
+          for (var i = 0; i < 5; i++) if ($('#' + side + i).value === NEW) { var n = nameOf(side, i); if (nn[team].indexOf(n) === -1) { nn[team].push(n); added.push(n + ' (' + team + ')'); } }
+        });
+        store('ls-newnames', nn);
+        $('#s-done-new').innerHTML = added.length ? 'New names added to their team\'s list for next time: ' + added.map(esc).join(', ') + '. The secretary links them to player records when approving the result.' : '';
+        $('#s-done-new').hidden = !added.length;
         $('#s-done-text').innerHTML = 'We have sent ' + esc(x.home) + ' ' + $('#s-total').textContent + ' ' + esc(x.away) + ' to the ' + esc(x.away) + ' captain to confirm. It goes on the site as soon as they confirm, or automatically after 48 hours if nobody queries it. The league secretary can see it in their <a href="' + rel('admin.html') + '">results queue</a>.';
         return true;
       }
     ], function (n) {
       if (n === 3) {
         var x = current(), rows = '';
-        for (var i = 0; i < 5; i++) rows += '<tr><td class="hp">' + esc($('#h' + i).value) + ' ' + brkOf('hb' + i) + '</td><td class="r">' + $('#hf' + i).value + ' – ' + $('#af' + i).value + '</td><td>' + esc($('#a' + i).value) + ' ' + brkOf('ab' + i) + '</td></tr>';
+        for (var i = 0; i < 5; i++) rows += '<tr><td class="hp">' + esc(nameOf('h', i)) + ' ' + brkOf('hb' + i) + '</td><td class="r">' + $('#hf' + i).value + ' – ' + $('#af' + i).value + '</td><td>' + esc(nameOf('a', i)) + ' ' + brkOf('ab' + i) + '</td></tr>';
         $('#s-summary').innerHTML = '<p class="eyebrow">' + esc(x.home) + ' v ' + esc(x.away) + ' · ' + longDate(x.date) + '</p><p style="font-size:2rem;font-weight:700" class="num">' + $('#s-total').textContent + '</p><table class="frames"><tbody>' + rows + '</tbody></table><p style="margin-top:1rem">' + esc($('#s-photo-name').textContent) + '</p>';
       }
     });

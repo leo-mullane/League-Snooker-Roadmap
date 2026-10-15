@@ -669,3 +669,7 @@ span.code { white-space: normal; overflow-wrap: anywhere; }
   .fe-hn { grid-area: hn; } .fe-hb { grid-area: hb; } .fe-hf { grid-area: hf; }
   .fe-an { grid-area: an; text-align: left; } .fe-an input { text-align: left; } .fe-ab { grid-area: ab; } .fe-af { grid-area: af; }
 }
+.frame-entry select.pick { width: 100%; }
+.frame-entry .pick-new { margin-top: .375rem; }
+.frame-entry .pick-new[hidden] { display: none; }
+.frame-entry select.pick[aria-invalid="true"] { border-color: var(--wf-note-query-border); box-shadow: inset 0 0 0 1px var(--wf-note-query-border); }

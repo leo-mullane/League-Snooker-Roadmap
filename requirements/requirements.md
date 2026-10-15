@@ -36,7 +36,7 @@ Requirement numbers match the idea numbers in the phase 1 review (internal oppor
 | R28 | League logo, header and sponsor within the system | League head |
 | R29 | Cup brackets | Cups |
 | R30 | Match card with frames, breaks, handicap tags | Match card |
-| R31 | Captain result submission with confirmation; player names typed freely, a break box beside each name | Submit a result |
+| R31 | Captain result submission with confirmation; each name picked from a dropdown of everyone who has played for the team this season, or added as a new name (which joins the list for next time); a name picked once is removed from the side's other dropdowns; a break box beside each name | Submit a result |
 | R32 | Optional live scoring | Live scoring |
 | R33 | Personal results and fixture alerts | Alerts and privacy |
 | R34 | Player career profile with head to head | Player profile |

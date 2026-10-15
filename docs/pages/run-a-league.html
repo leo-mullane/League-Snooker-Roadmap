@@ -11,8 +11,8 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <!-- Prototype navigator (replaces the live site's header, R49) -->
-  <header class="sticky site-header proto-nav">
+  <!-- Prototype bar: moves between prototypes and switches notes; not part of the site (R49) -->
+  <div class="proto-nav">
     <div class="container proto-nav-row">
       <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
       <nav aria-label="Prototypes">
@@ -31,7 +31,93 @@
         <span class="notes-label">Notes off</span>
       </button>
     </div>
+  </div>
+
+  <!-- Site header: logo, main navigation with dropdowns, search and sign in (R53) -->
+  <header class="sticky site-header site-masthead">
+    <div class="container site-header-row">
+      <a class="site-logo" href="../pages/home.html" aria-label="UK League Snooker, home"><span class="wm">UK League Sn<span class="o"></span><span class="o"></span>ker</span></a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li class="nav-item" data-section="leagues" data-pages="leagues league tables clubs club archive league-info cups">
+            <a class="nav-link" href="../pages/leagues.html">Leagues</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/leagues.html">Find a league near you</a></li>
+              <li><a href="../pages/league.html">Cambridge &amp; District</a></li>
+              <li><a href="../pages/clubs.html">Clubs</a></li>
+              <li><a href="../pages/archive.html">Past seasons</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="results" data-pages="fixtures match submit-result live">
+            <a class="nav-link" href="../pages/fixtures.html">Results</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/fixtures.html">Fixtures and results</a></li>
+              <li><a href="../pages/match.html">Latest match card</a></li>
+              <li><a href="../pages/submit-result.html">Submit a result</a></li>
+              <li><a href="../pages/live.html">Live scores</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="players" data-pages="players player breaks account">
+            <a class="nav-link" href="../pages/breaks.html">Players</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/players.html">Player rankings</a></li>
+              <li><a href="../pages/player.html">Player profiles</a></li>
+              <li><a href="../pages/breaks.html">Centuries hall of fame</a></li>
+              <li><a href="../pages/account.html">Your alerts</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="championship" data-pages="championship">
+            <a class="nav-link" href="../pages/championship.html">Championship</a>
+          </li>
+          <li class="nav-item" data-section="community" data-pages="community">
+            <a class="nav-link" href="../pages/community.html">Community</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="#">Facebook group</a></li>
+              <li><a href="../pages/community.html">Forum archive</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="run" data-pages="run-a-league setup sign-in admin">
+            <a class="nav-link" href="../pages/run-a-league.html">Run a league</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/run-a-league.html">How it works and pricing</a></li>
+              <li><a href="../pages/setup.html">Start your league</a></li>
+              <li><a href="../pages/sign-in.html">Secretary sign in</a></li>
+              <li><a href="../pages/admin.html">League admin</a></li>
+            </ul></div>
+          </li>
+        </ul>
+      </nav>
+      <div class="site-utils">
+        <button type="button" class="util-btn" data-search-toggle aria-expanded="false" aria-controls="site-search">Search</button>
+        <a class="util-btn" href="../pages/sign-in.html">Sign in</a>
+        <button type="button" class="util-btn nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <div class="site-search" id="site-search" hidden>
+      <div class="container">
+        <div class="omni" role="search">
+          <form class="omni-row omni-form" autocomplete="off">
+            <label class="sr-only" for="hdr-q">Search for a league, club, team, player or postcode</label>
+            <input type="search" id="hdr-q" class="omni-input" placeholder="League, club, team, player or postcode" role="combobox" aria-expanded="false" aria-controls="hdr-results" aria-autocomplete="list">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <div class="omni-results" id="hdr-results" role="listbox" hidden></div>
+        </div>
+      </div>
+    </div>
+    <!-- Section sub-navigation: shown on pages that don't have a league's own tabs (R54) -->
+    <nav class="section-nav" aria-label="In this section" hidden>
+      <div class="container">
+        <ul data-section="leagues"><li><a href="../pages/leagues.html">Find a league</a></li><li><a href="../pages/league.html">Cambridge &amp; District</a></li><li><a href="../pages/clubs.html">Clubs</a></li><li><a href="../pages/archive.html">Past seasons</a></li></ul>
+        <ul data-section="results"><li><a href="../pages/fixtures.html">Fixtures and results</a></li><li><a href="../pages/match.html">Match cards</a></li><li><a href="../pages/submit-result.html">Submit a result</a></li><li><a href="../pages/live.html">Live scores</a></li></ul>
+        <ul data-section="players"><li><a href="../pages/players.html">Rankings</a></li><li><a href="../pages/player.html">Player profiles</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li><li><a href="../pages/account.html">Your alerts</a></li></ul>
+        <ul data-section="championship"><li><a href="../pages/championship.html">Championship 2026</a></li><li><a href="../pages/championship.html#ch-past">Past winners</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li></ul>
+        <ul data-section="community"><li><a href="#">Facebook group</a></li><li><a href="../pages/community.html">Forum archive</a></li><li><a href="../pages/championship.html">Championship</a></li></ul>
+        <ul data-section="run"><li><a href="../pages/run-a-league.html">How it works</a></li><li><a href="../pages/run-a-league.html#pricing">Pricing</a></li><li><a href="../pages/setup.html">Start your league</a></li><li><a href="../pages/sign-in.html">Secretary sign in</a></li><li><a href="../pages/admin.html">League admin</a></li></ul>
+      </div>
+    </nav>
   </header>
+
 
   <main id="main" class="flush">
     <aside class="proposal" aria-label="About this prototype">
@@ -41,7 +127,7 @@
           <div><h2>What we're proposing</h2><p>A page written for league secretaries: what they get, how much of their week it takes, what it costs (with a calculator rather than worked examples), how payment works and a button to start. It finishes with the leagues already on the site and the link with the national governing body.</p></div>
           <div><h2>Why</h2><p>The current Join page explains pricing in two paragraphs of examples, quotes a build value of £35,000 to £40,000, describes the administrator as "he" throughout and still has instructions for Internet Explorer 6. The offer itself is good and cheap. The page undersells it.</p></div>
         </div>
-        <p class="proposal-foot">Covers ideas 17, 41, 42, 45 and 47. Prices are the current published rates.</p>
+        <p class="proposal-foot">Prices are the current published rates.</p>
       </div>
     </aside>
     <div class="page-head">
@@ -86,7 +172,7 @@
           <div class="panel"><h3>Pay online</h3><p>By card or Direct Debit once a season, with an invoice for your treasurer.</p></div>
           <div class="panel"><h3>Ad-free option</h3><p>[Price to be agreed] per season to remove sponsor slots from your league's pages.</p></div>
         </div>
-        <div class="wf-note query" data-note="1"><span class="wf-note-label">Question for the client</span>Do you want to offer online payment (idea 42) and an ad-free option? Neither exists today, and both need a price from you.</div>
+        <div class="wf-note query" data-note="1"><span class="wf-note-label">Question for the client</span>Do you want to offer online payment and an ad-free option? Neither exists today, and both need a price from you.</div>
       </section>
 
       <section aria-labelledby="who-h">
@@ -106,17 +192,45 @@
       </section>
     </div>
   </main>
-  <!-- Prototype pager (replaces the live site's footer, R49) -->
-  <footer class="proto-footer">
+  <!-- Site footer (R55) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="site-logo" href="../pages/home.html" aria-label="UK League Snooker, home"><span class="wm">UK League Sn<span class="o"></span><span class="o"></span>ker</span></a>
+          <p class="footer-strap">Every UK snooker and billiards league in one place.</p>
+        </div>
+        <div class="sponsor-slot footer-sponsor"><div class="wf-placeholder">Sponsor logo</div><span>Community sponsor</span></div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-column"><h2 class="footer-h">Find</h2><ul>
+          <li><a href="../pages/leagues.html">Find a league</a></li><li><a href="../pages/clubs.html">Clubs</a></li><li><a href="../pages/championship.html">Championship</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">Players</h2><ul>
+          <li><a href="../pages/fixtures.html">Fixtures and results</a></li><li><a href="../pages/submit-result.html">Submit a result</a></li><li><a href="../pages/live.html">Live scores</a></li><li><a href="../pages/account.html">Your alerts</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">Secretaries</h2><ul>
+          <li><a href="../pages/run-a-league.html">How it works</a></li><li><a href="../pages/run-a-league.html#pricing">Pricing</a></li><li><a href="../pages/setup.html">Start your league</a></li><li><a href="../pages/sign-in.html">Secretary sign in</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">About</h2><ul>
+          <li><a href="#">About UK League Snooker</a></li><li><a href="#">Contact us</a></li><li><a href="../pages/community.html">Community</a></li><li><a href="#">Facebook group</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 UK League Snooker</span>
+        <ul class="footer-legal"><li><a href="#">Privacy</a></li><li><a href="#">Cookies</a></li><li><a href="#">Terms</a></li><li><a href="#">Accessibility</a></li></ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prototype pager: not part of the site (R49) -->
+  <div class="proto-footer">
     <div class="container">
       <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
       <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
     </div>
-  </footer>
+  </div>
   <script src="../js/data.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/league.js"></script>
   <script src="../js/photos.js"></script>
+
 
 </body>
 </html>

@@ -10,8 +10,8 @@
 </head>
 <body class="hub">
   <a class="skip-link" href="#main">Skip to content</a>
-  <!-- Prototype navigator (replaces the live site's header, R49) -->
-  <header class="sticky site-header proto-nav">
+  <!-- Prototype bar: moves between prototypes and switches notes; not part of the site (R49) -->
+  <div class="proto-nav">
     <div class="container proto-nav-row">
       <a class="proto-home" href="./index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
       <nav aria-label="Prototypes">
@@ -30,7 +30,7 @@
         <span class="notes-label">Notes off</span>
       </button>
     </div>
-  </header>
+  </div>
 
   <main id="main">
     <div class="hub-hero">
@@ -54,57 +54,56 @@
       </section>
 
       <section aria-labelledby="cov-h">
-        <h2 id="cov-h" class="hub-h2">Where to find each idea</h2>
-        <p>All 48 ideas from our review and the page that shows each one.</p>
-        <div class="table-wrap"><table class="cov"><caption class="sr-only">Ideas and the pages that show them</caption><thead><tr><th scope="col">#</th><th scope="col">Idea</th><th scope="col">Shown on</th></tr></thead><tbody>
-          <tr><td>1</td><td>One responsive site for every screen</td><td><a href="pages/foundations.html#f-responsive">Foundations</a> · <a href="pages/home.html">every page</a></td></tr>
-          <tr><td>2</td><td>A new design system</td><td><a href="pages/foundations.html#f-responsive">Foundations (applied in round 2)</a></td></tr>
-          <tr><td>3</td><td>Readable type and figures that line up</td><td><a href="pages/foundations.html#f-type">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
-          <tr><td>4</td><td>Proper headings and page titles</td><td><a href="pages/foundations.html#f-titles">Foundations</a></td></tr>
-          <tr><td>5</td><td>Accessible tables and images</td><td><a href="pages/foundations.html#f-a11y">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
-          <tr><td>6</td><td>Readable addresses, with redirects from the old ones</td><td><a href="pages/foundations.html#f-urls">Foundations</a></td></tr>
-          <tr><td>7</td><td>One cookie prompt</td><td><a href="pages/home.html">Community home</a> · <a href="pages/foundations.html#f-consent">Foundations</a></td></tr>
-          <tr><td>8</td><td>Curated sponsors instead of open ads</td><td><a href="pages/home.html">Community home</a> · <a href="pages/league.html">League overview</a></td></tr>
-          <tr><td>9</td><td>A contact form instead of published email addresses</td><td><a href="pages/league-info.html#contact">League information</a></td></tr>
-          <tr><td>10</td><td>Fix character encoding</td><td><a href="pages/foundations.html#f-data">Foundations</a></td></tr>
-          <tr><td>11</td><td>Search-first homepage</td><td><a href="pages/home.html">Community home</a></td></tr>
-          <tr><td>12</td><td>Find a league near you</td><td><a href="pages/leagues.html">League finder</a></td></tr>
-          <tr><td>13</td><td>Filters for night, game, format and more</td><td><a href="pages/leagues.html">League finder</a></td></tr>
-          <tr><td>14</td><td>This week across the community</td><td><a href="pages/home.html">Community home</a></td></tr>
-          <tr><td>15</td><td>A home for the championship</td><td><a href="pages/championship.html">Championship</a></td></tr>
-          <tr><td>16</td><td>Shorter testimonials</td><td><a href="pages/home.html">Community home</a></td></tr>
-          <tr><td>17</td><td>Separate routes for players and secretaries</td><td><a href="pages/home.html">Community home</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
-          <tr><td>18</td><td>Retire the forum to an archive</td><td><a href="pages/community.html">Forum archive</a></td></tr>
-          <tr><td>19</td><td>League overview page</td><td><a href="pages/league.html">League overview</a></td></tr>
-          <tr><td>20</td><td>Eight tabs, not eighteen links</td><td><a href="pages/league.html">League hub</a></td></tr>
-          <tr><td>21</td><td>Division switcher</td><td><a href="pages/tables.html">Tables</a></td></tr>
-          <tr><td>22</td><td>Past seasons archive</td><td><a href="pages/archive.html">Past seasons</a></td></tr>
-          <tr><td>23</td><td>Fixtures by week, with "My team"</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
-          <tr><td>24</td><td>Show the real match date</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
-          <tr><td>25</td><td>Form guide and movement</td><td><a href="pages/tables.html">Tables</a></td></tr>
-          <tr><td>26</td><td>Add fixtures to your calendar</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
-          <tr><td>27</td><td>Proper club pages</td><td><a href="pages/clubs.html">Clubs</a> · <a href="pages/club.html?club=whittlesford">Club</a></td></tr>
-          <tr><td>28</td><td>League branding inside the system</td><td><a href="pages/league.html">League overview</a></td></tr>
-          <tr><td>29</td><td>Cup draws as brackets</td><td><a href="pages/cups.html">Cups</a></td></tr>
-          <tr><td>30</td><td>Match card page</td><td><a href="pages/match.html">Match card</a></td></tr>
-          <tr><td>31</td><td>Result submission on a phone</td><td><a href="pages/submit-result.html">Submit a result</a></td></tr>
-          <tr><td>32</td><td>Live scoring (optional)</td><td><a href="pages/live.html">Live scoring</a></td></tr>
-          <tr><td>33</td><td>"Results are in" alerts</td><td><a href="pages/account.html">Alerts and privacy</a></td></tr>
-          <tr><td>34</td><td>Player profile and career</td><td><a href="pages/player.html">Player profile</a></td></tr>
-          <tr><td>35</td><td>Handicap as data, not part of a name</td><td><a href="pages/player.html">Player profile</a> · <a href="pages/foundations.html#f-data">Foundations</a></td></tr>
-          <tr><td>36</td><td>Fairer rankings display</td><td><a href="pages/players.html">Rankings</a></td></tr>
-          <tr><td>37</td><td>Centuries hall of fame</td><td><a href="pages/breaks.html">Hall of fame</a></td></tr>
-          <tr><td>38</td><td>Player privacy choices</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/player.html">Player profile</a></td></tr>
-          <tr><td>39</td><td>Follow a team or player</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/league.html">League hub</a></td></tr>
-          <tr><td>40</td><td>Start your league online</td><td><a href="pages/setup.html">Start your league</a></td></tr>
-          <tr><td>41</td><td>Pricing calculator</td><td><a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
-          <tr><td>42</td><td>Pay online</td><td><a href="pages/setup.html">Start your league</a> · <a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
-          <tr><td>43</td><td>Faster results entry for secretaries</td><td><a href="pages/admin.html">League admin</a></td></tr>
-          <tr><td>44</td><td>Password reset and helpers</td><td><a href="pages/sign-in.html">Sign in</a> · <a href="pages/admin.html">League admin</a></td></tr>
-          <tr><td>45</td><td>Refresh the Join copy</td><td><a href="pages/run-a-league.html">Run a league</a></td></tr>
-          <tr><td>46</td><td>Embeddable tables</td><td><a href="pages/league-info.html#embed">League information</a></td></tr>
-          <tr><td>47</td><td>Work with the EPSB</td><td><a href="pages/league.html">League overview</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
-          <tr><td>48</td><td>Data export</td><td><a href="pages/admin.html">League admin</a></td></tr>
+        <h2 id="cov-h" class="hub-h2">What's in the prototypes</h2>
+        <p>Every feature we are proposing, and the page where you can try it.</p>
+        <div class="table-wrap"><table class="cov"><caption class="sr-only">Features and the pages that show them</caption><thead><tr><th scope="col">Feature</th><th scope="col">Shown on</th></tr></thead><tbody>
+          <tr><td>One responsive site for every screen</td><td><a href="pages/foundations.html#f-responsive">Foundations</a> · <a href="pages/home.html">every page</a></td></tr>
+          <tr><td>A new design system</td><td><a href="pages/foundations.html#f-responsive">Every page</a></td></tr>
+          <tr><td>Readable type and figures that line up</td><td><a href="pages/foundations.html#f-type">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>Proper headings and page titles</td><td><a href="pages/foundations.html#f-titles">Foundations</a></td></tr>
+          <tr><td>Accessible tables and images</td><td><a href="pages/foundations.html#f-a11y">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>Readable addresses, with redirects from the old ones</td><td><a href="pages/foundations.html#f-urls">Foundations</a></td></tr>
+                    <tr><td>Curated sponsors instead of open ads</td><td><a href="pages/home.html">Community home</a> · <a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>A contact form instead of published email addresses</td><td><a href="pages/league-info.html#contact">League information</a></td></tr>
+          <tr><td>Fix character encoding</td><td><a href="pages/foundations.html#f-data">Foundations</a></td></tr>
+          <tr><td>Search-first homepage</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>Find a league near you</td><td><a href="pages/leagues.html">League finder</a></td></tr>
+          <tr><td>Filters for night, game, format and more</td><td><a href="pages/leagues.html">League finder</a></td></tr>
+          <tr><td>This week across the community</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>A home for the championship</td><td><a href="pages/championship.html">Championship</a></td></tr>
+          <tr><td>Shorter testimonials</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>Separate routes for players and secretaries</td><td><a href="pages/home.html">Community home</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>Retire the forum to an archive</td><td><a href="pages/community.html">Forum archive</a></td></tr>
+          <tr><td>League overview page</td><td><a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>Eight tabs, not eighteen links</td><td><a href="pages/league.html">League hub</a></td></tr>
+          <tr><td>Division switcher</td><td><a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>Past seasons archive</td><td><a href="pages/archive.html">Past seasons</a></td></tr>
+          <tr><td>Fixtures by week, with "My team"</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>Show the real match date</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>Form guide and movement</td><td><a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>Add fixtures to your calendar</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>Proper club pages</td><td><a href="pages/clubs.html">Clubs</a> · <a href="pages/club.html?club=whittlesford">Club</a></td></tr>
+          <tr><td>League branding inside the system</td><td><a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>Cup draws as brackets</td><td><a href="pages/cups.html">Cups</a></td></tr>
+          <tr><td>Match card page</td><td><a href="pages/match.html">Match card</a></td></tr>
+          <tr><td>Result submission on a phone</td><td><a href="pages/submit-result.html">Submit a result</a></td></tr>
+          <tr><td>Live scoring (optional)</td><td><a href="pages/live.html">Live scoring</a></td></tr>
+          <tr><td>"Results are in" alerts</td><td><a href="pages/account.html">Alerts and privacy</a></td></tr>
+          <tr><td>Player profile and career</td><td><a href="pages/player.html">Player profile</a></td></tr>
+          <tr><td>Handicap as data, not part of a name</td><td><a href="pages/player.html">Player profile</a> · <a href="pages/foundations.html#f-data">Foundations</a></td></tr>
+          <tr><td>Fairer rankings display</td><td><a href="pages/players.html">Rankings</a></td></tr>
+          <tr><td>Centuries hall of fame</td><td><a href="pages/breaks.html">Hall of fame</a></td></tr>
+          <tr><td>Player privacy choices</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/player.html">Player profile</a></td></tr>
+          <tr><td>Follow a team or player</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/league.html">League hub</a></td></tr>
+          <tr><td>Start your league online</td><td><a href="pages/setup.html">Start your league</a></td></tr>
+          <tr><td>Pricing calculator</td><td><a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
+          <tr><td>Pay online</td><td><a href="pages/setup.html">Start your league</a> · <a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
+          <tr><td>Faster results entry for secretaries</td><td><a href="pages/admin.html">League admin</a></td></tr>
+          <tr><td>Password reset and helpers</td><td><a href="pages/sign-in.html">Sign in</a> · <a href="pages/admin.html">League admin</a></td></tr>
+          <tr><td>Refresh the Join copy</td><td><a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>Embeddable tables</td><td><a href="pages/league-info.html#embed">League information</a></td></tr>
+          <tr><td>Work with the EPSB</td><td><a href="pages/league.html">League overview</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>Data export</td><td><a href="pages/admin.html">League admin</a></td></tr>
         </tbody></table></div>
       </section>
 

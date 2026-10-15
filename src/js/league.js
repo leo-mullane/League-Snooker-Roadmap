@@ -198,40 +198,72 @@
   }
 
   function initOmni() {
-    var input = $('#omni-q'); if (!input) return;
-    var box = $('#omni-results'); var idx = searchIndex(); var active = -1;
-    function close() { box.hidden = true; input.setAttribute('aria-expanded', 'false'); active = -1; }
-    function render() {
-      var q = input.value.trim().toLowerCase();
-      if (q.length < 2) { close(); return; }
-      var pc = q.toUpperCase().match(/^([A-Z]{1,2})\d/);
-      var html = '';
-      if (pc) html += '<div class="omni-group">Postcode</div><a href="' + rel('leagues.html?near=' + encodeURIComponent(input.value.trim().toUpperCase())) + '"><span>Leagues and clubs near ' + esc(input.value.trim().toUpperCase()) + '</span><small>Map</small></a>';
-      ['Leagues', 'Clubs', 'Teams', 'Players'].forEach(function (g) {
-        var hits = idx.filter(function (i) { return i.g === g && i.t.toLowerCase().indexOf(q) !== -1; }).slice(0, g === 'Players' ? 4 : 5);
-        if (!hits.length) return;
-        html += '<div class="omni-group">' + g + '</div>' + hits.map(function (i) { return '<a href="' + i.h + '"><span>' + esc(i.t) + '</span><small>' + esc(i.s) + '</small></a>'; }).join('');
-      });
-      box.innerHTML = html || '<p class="omni-empty">Nothing matches "' + esc(input.value) + '". Try a town, a club or a postcode such as CB1.</p>';
-      box.hidden = false; input.setAttribute('aria-expanded', 'true'); active = -1;
-    }
-    input.addEventListener('input', render);
-    input.addEventListener('focus', render);
-    input.addEventListener('keydown', function (e) {
-      var links = $all('a', box);
-      if (e.key === 'Escape') { close(); return; }
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault(); if (!links.length) return;
-        active = (active + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
-        links.forEach(function (l, i) { l.classList.toggle('active', i === active); });
-        links[active].scrollIntoView({ block: 'nearest' });
+    var idx = null;
+    $all('.omni').forEach(function (box0) {
+      var input = $('input[type="search"]', box0); if (!input) return;
+      var box = $('.omni-results', box0), active = -1, form = $('form', box0);
+      function close() { box.hidden = true; input.setAttribute('aria-expanded', 'false'); active = -1; }
+      function render() {
+        idx = idx || searchIndex();
+        var q = input.value.trim().toLowerCase();
+        if (q.length < 2) { close(); return; }
+        var pc = q.toUpperCase().match(/^([A-Z]{1,2})\d/);
+        var html = '';
+        if (pc) html += '<div class="omni-group">Postcode</div><a href="' + rel('leagues.html?near=' + encodeURIComponent(input.value.trim().toUpperCase())) + '"><span>Leagues and clubs near ' + esc(input.value.trim().toUpperCase()) + '</span><small>Map</small></a>';
+        ['Leagues', 'Clubs', 'Teams', 'Players'].forEach(function (g) {
+          var hits = idx.filter(function (i) { return i.g === g && i.t.toLowerCase().indexOf(q) !== -1; }).slice(0, g === 'Players' ? 4 : 5);
+          if (!hits.length) return;
+          html += '<div class="omni-group">' + g + '</div>' + hits.map(function (i) { return '<a href="' + i.h + '"><span>' + esc(i.t) + '</span><small>' + esc(i.s) + '</small></a>'; }).join('');
+        });
+        box.innerHTML = html || '<p class="omni-empty">Nothing matches "' + esc(input.value) + '". Try a town, a club or a postcode such as CB1.</p>';
+        box.hidden = false; input.setAttribute('aria-expanded', 'true'); active = -1;
       }
-      if (e.key === 'Enter' && active >= 0 && links[active]) { e.preventDefault(); links[active].click(); }
+      input.addEventListener('input', render);
+      input.addEventListener('focus', render);
+      input.addEventListener('keydown', function (e) {
+        var links = $all('a', box);
+        if (e.key === 'Escape') { close(); return; }
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault(); if (!links.length) return;
+          active = (active + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length;
+          links.forEach(function (l, i) { l.classList.toggle('active', i === active); });
+          links[active].scrollIntoView({ block: 'nearest' });
+        }
+        if (e.key === 'Enter' && active >= 0 && links[active]) { e.preventDefault(); links[active].click(); }
+      });
+      document.addEventListener('click', function (e) { if (!box0.contains(e.target)) close(); });
+      if (form) form.addEventListener('submit', function (e) { e.preventDefault(); var first = $('a', box); if (first) first.click(); else render(); });
+      $all('[data-omni-try]').forEach(function (b) { if (input.id !== 'omni-q') return; b.addEventListener('click', function () { input.value = b.getAttribute('data-omni-try'); input.focus(); render(); }); });
     });
-    document.addEventListener('click', function (e) { if (!e.target.closest('.omni')) close(); });
-    var form = $('#omni-form');
-    if (form) form.addEventListener('submit', function (e) { e.preventDefault(); var first = $('a', box); if (first) first.click(); else render(); });
-    $all('[data-omni-try]').forEach(function (b) { b.addEventListener('click', function () { input.value = b.getAttribute('data-omni-try'); input.focus(); render(); }); });
+  }
+
+  /* --- Site header: current section, section sub-navigation, menu, search --- */
+  function initSiteNav() {
+    var nav = $('#site-nav'); if (!nav) return;
+    var cur = page(), section = null;
+    $all('.nav-item[data-pages]', nav).forEach(function (li) {
+      if (li.getAttribute('data-pages').split(' ').indexOf(cur) !== -1) { section = li.getAttribute('data-section'); $('.nav-link', li).setAttribute('aria-current', 'true'); }
+    });
+    var sub = $('.section-nav');
+    if (sub && section && !$('.league-head')) {
+      var list = $('ul[data-section="' + section + '"]', sub);
+      if (list) {
+        sub.hidden = false;
+        $all('ul', sub).forEach(function (u) { u.hidden = u !== list; });
+        $all('a', list).forEach(function (a) { var h = a.getAttribute('href'); if (h.indexOf('#') === -1 && h.split('/').pop().split('?')[0] === cur + '.html') a.setAttribute('aria-current', 'page'); });
+      }
+    }
+    var tog = $('.nav-toggle');
+    if (tog) tog.addEventListener('click', function () { var open = nav.classList.toggle('open'); tog.setAttribute('aria-expanded', String(open)); tog.textContent = open ? 'Close' : 'Menu'; });
+    var st = $('[data-search-toggle]'), panel = $('#site-search');
+    if (st && panel) {
+      st.addEventListener('click', function () {
+        panel.hidden = !panel.hidden; st.setAttribute('aria-expanded', String(!panel.hidden));
+        if (!panel.hidden) $('input', panel).focus();
+        var h = $('header.sticky'); if (h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { panel.hidden = true; st.setAttribute('aria-expanded', 'false'); st.focus(); } });
+    }
   }
 
   function initHomeStats() {
@@ -574,52 +606,55 @@
     var pick = $('#s-fixture');
     pick.innerHTML = due.concat(upcoming).map(function (x) { return '<option value="' + x.id + '"' + (x === f ? ' selected' : '') + '>' + esc(x.home) + ' v ' + esc(x.away) + ' · ' + shortDate(x.date) + (x.status === 'due' ? ' · result due' : '') + '</option>'; }).join('');
     function current() { return fixture(pick.value); }
+    /* Player names are typed as written on the match card. Each player has a box for
+       their highest break; captains leave it blank when there wasn't one. */
     function buildGames() {
       var x = current();
-      var hp = LS.teamPlayers[x.home], ap = LS.teamPlayers[x.away];
-      var opt = function (list, sel) { return '<option value="">Choose player</option>' + list.map(function (id) { return '<option value="' + id + '"' + (id === sel ? ' selected' : '') + '>' + esc(P[id].name) + '</option>'; }).join(''); };
-      $('#s-games').innerHTML = [0, 1, 2, 3, 4].map(function (i) {
-        return '<div class="frame-entry" data-game="' + i + '"><div><label class="sr-only" for="h' + i + '">Game ' + (i + 1) + ' home player</label><select id="h' + i + '">' + opt(hp, hp[i]) + '</select></div>' +
-          '<div><label class="lbl" for="hf' + i + '">' + esc(x.home) + '</label><select id="hf' + i + '" class="fr"><option>0</option><option selected>1</option><option>2</option></select></div>' +
-          '<div><label class="lbl" for="af' + i + '">' + esc(x.away) + '</label><select id="af' + i + '" class="fr"><option>0</option><option selected>1</option><option>2</option></select></div>' +
-          '<div><label class="sr-only" for="a' + i + '">Game ' + (i + 1) + ' away player</label><select id="a' + i + '">' + opt(ap, ap[i]) + '</select></div></div>';
-      }).join('');
+      var fr = function (id) { return '<select id="' + id + '" class="fr"><option>0</option><option selected>1</option><option>2</option></select>'; };
+      $('#s-games').innerHTML = '<div class="frame-head" aria-hidden="true"><span>Home player</span><span>Break</span><span>Frames</span><span>Frames</span><span>Break</span><span>Away player</span></div>' +
+        [0, 1, 2, 3, 4].map(function (i) {
+          return '<fieldset class="frame-entry" data-game="' + i + '"><legend class="sr-only">Game ' + (i + 1) + '</legend>' +
+            '<div class="fe fe-hn"><label class="lbl" for="h' + i + '">Home player ' + (i + 1) + '</label><input type="text" id="h' + i + '" autocomplete="off" placeholder="Name as on the card"></div>' +
+            '<div class="fe fe-hb"><label class="lbl" for="hb' + i + '">Break</label><input type="text" id="hb' + i + '" inputmode="numeric" maxlength="3" placeholder="–"></div>' +
+            '<div class="fe fe-hf"><label class="lbl" for="hf' + i + '">Frames</label>' + fr('hf' + i) + '</div>' +
+            '<div class="fe fe-af"><label class="lbl" for="af' + i + '">Frames</label>' + fr('af' + i) + '</div>' +
+            '<div class="fe fe-ab"><label class="lbl" for="ab' + i + '">Break</label><input type="text" id="ab' + i + '" inputmode="numeric" maxlength="3" placeholder="–"></div>' +
+            '<div class="fe fe-an"><label class="lbl" for="a' + i + '">Away player ' + (i + 1) + '</label><input type="text" id="a' + i + '" autocomplete="off" placeholder="Name as on the card"></div>' +
+            '</fieldset>';
+        }).join('');
       $('#s-home-name').textContent = x.home; $('#s-away-name').textContent = x.away;
-      tally();
+      tally(false);
     }
-    function tally() {
-      var h = 0, a = 0, bad = [];
+    function tally(strict) {
+      var h = 0, a = 0, msgs = [], badFrames = [], badNames = 0, badBreaks = 0;
+      $all('#s-games input').forEach(function (el) { el.removeAttribute('aria-invalid'); });
       for (var i = 0; i < 5; i++) {
         var hf = parseInt($('#hf' + i).value, 10), af = parseInt($('#af' + i).value, 10);
-        h += hf; a += af; if (hf + af !== 2) bad.push(i + 1);
+        h += hf; a += af; if (hf + af !== 2) badFrames.push(i + 1);
+        ['h', 'a'].forEach(function (side) {
+          var n = $('#' + side + i), b = $('#' + side + 'b' + i), v = b.value.trim();
+          if (strict && !n.value.trim()) { n.setAttribute('aria-invalid', 'true'); badNames++; }
+          if (v && !(/^\d+$/.test(v) && +v >= 20 && +v <= 147)) { b.setAttribute('aria-invalid', 'true'); badBreaks++; }
+        });
       }
       $('#s-total').textContent = h + ' – ' + a;
+      if (badFrames.length) msgs.push('Each game is best of two frames, so its frames should add up to 2. Check game' + (badFrames.length > 1 ? 's ' : ' ') + badFrames.join(', ') + '.');
+      if (badNames) msgs.push('Type the name of every player, as written on the match card.');
+      if (badBreaks) msgs.push('Breaks should be a number between 20 and 147. Leave the box empty if there was no break.');
       var e = $('#s-games-error');
-      e.hidden = !bad.length;
-      e.textContent = bad.length ? 'Each game is best of two frames, so its frames should add up to 2. Check game' + (bad.length > 1 ? 's ' : ' ') + bad.join(', ') + '.' : '';
-      return !bad.length;
+      e.hidden = !msgs.length; e.innerHTML = msgs.map(esc).join('<br>');
+      if (strict && msgs.length) { var first = $('#s-games [aria-invalid="true"]'); if (first) first.focus(); }
+      return !msgs.length;
     }
-    var breaks = [];
-    function renderBreaks() {
-      $('#s-break-list').innerHTML = breaks.length ? breaks.map(function (b, i) { return '<li class="row between"><span>' + esc(P[b.p].name) + ' ' + brk(b.b) + '</span><button type="button" class="btn-link" data-rm="' + i + '">Remove</button></li>'; }).join('') : '<li class="muted">No breaks added yet. Breaks of 20 and over count for this league.</li>';
-      var all = LS.teamPlayers[current().home].concat(LS.teamPlayers[current().away]);
-      $('#s-break-player').innerHTML = all.map(function (id) { return '<option value="' + id + '">' + esc(P[id].name) + ' (' + esc(P[id].team) + ')</option>'; }).join('');
-    }
-    $('#s-break-add').addEventListener('click', function () {
-      var v = parseInt($('#s-break-val').value, 10);
-      var f2 = $('#s-break-val').closest('.field'), err = $('#s-break-error');
-      if (!(v >= 20 && v <= 147)) { err.hidden = false; err.textContent = 'Enter a break between 20 and 147.'; f2.classList.add('has-error'); return; }
-      err.hidden = true; f2.classList.remove('has-error');
-      breaks.push({ p: $('#s-break-player').value, b: v }); $('#s-break-val').value = ''; renderBreaks();
-    });
-    $('#s-break-list').addEventListener('click', function (e) { var b = e.target.closest('[data-rm]'); if (b) { breaks.splice(parseInt(b.getAttribute('data-rm'), 10), 1); renderBreaks(); } });
-    $('#s-games').addEventListener('change', tally);
-    pick.addEventListener('change', function () { breaks = []; buildGames(); renderBreaks(); });
+    function brkOf(id) { var v = $('#' + id).value.trim(); return v ? brk(parseInt(v, 10)) : ''; }
+    $('#s-games').addEventListener('change', function () { tally(false); });
+    $('#s-games').addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid')) tally(false); });
+    pick.addEventListener('change', buildGames);
     $('#s-photo').addEventListener('change', function (e) { var f2 = e.target.files[0]; $('#s-photo-name').textContent = f2 ? 'Attached: ' + f2.name : 'No photo attached yet.'; });
-    buildGames(); renderBreaks();
+    buildGames();
     stepper(root, [
       function () { return true; },
-      tally,
+      function () { return tally(true); },
       function () { return true; },
       function () {
         var x = current(), ok = $('#s-confirm').checked;
@@ -631,8 +666,8 @@
     ], function (n) {
       if (n === 3) {
         var x = current(), rows = '';
-        for (var i = 0; i < 5; i++) rows += '<tr><td>' + esc(P[$('#h' + i).value] ? P[$('#h' + i).value].name : '–') + '</td><td class="r">' + $('#hf' + i).value + ' – ' + $('#af' + i).value + '</td><td>' + esc(P[$('#a' + i).value] ? P[$('#a' + i).value].name : '–') + '</td></tr>';
-        $('#s-summary').innerHTML = '<p class="eyebrow">' + esc(x.home) + ' v ' + esc(x.away) + ' · ' + longDate(x.date) + '</p><p style="font-size:2rem;font-weight:700" class="num">' + $('#s-total').textContent + '</p><table class="frames"><tbody>' + rows + '</tbody></table><p style="margin-top:1rem">Breaks: ' + (breaks.length ? breaks.map(function (b) { return esc(P[b.p].name) + ' ' + b.b; }).join(', ') : 'none') + '</p><p>' + esc($('#s-photo-name').textContent) + '</p>';
+        for (var i = 0; i < 5; i++) rows += '<tr><td class="hp">' + esc($('#h' + i).value) + ' ' + brkOf('hb' + i) + '</td><td class="r">' + $('#hf' + i).value + ' – ' + $('#af' + i).value + '</td><td>' + esc($('#a' + i).value) + ' ' + brkOf('ab' + i) + '</td></tr>';
+        $('#s-summary').innerHTML = '<p class="eyebrow">' + esc(x.home) + ' v ' + esc(x.away) + ' · ' + longDate(x.date) + '</p><p style="font-size:2rem;font-weight:700" class="num">' + $('#s-total').textContent + '</p><table class="frames"><tbody>' + rows + '</tbody></table><p style="margin-top:1rem">' + esc($('#s-photo-name').textContent) + '</p>';
       }
     });
   }
@@ -920,7 +955,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    initHubTabs();
+    initHubTabs(); initSiteNav();
     initConsent(); initOmni(); initHomeStats(); initFinder();
     initOverview(); initTables(); initFixtures(); initCups(); initClubs(); initArchive(); initLeagueInfo();
     initMatch(); initSubmit(); initLive();

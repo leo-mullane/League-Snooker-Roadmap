@@ -11,8 +11,8 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <!-- Prototype navigator (replaces the live site's header, R49) -->
-  <header class="sticky site-header proto-nav">
+  <!-- Prototype bar: moves between prototypes and switches notes; not part of the site (R49) -->
+  <div class="proto-nav">
     <div class="container proto-nav-row">
       <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
       <nav aria-label="Prototypes">
@@ -31,25 +31,111 @@
         <span class="notes-label">Notes off</span>
       </button>
     </div>
+  </div>
+
+  <!-- Site header: logo, main navigation with dropdowns, search and sign in (R53) -->
+  <header class="sticky site-header site-masthead">
+    <div class="container site-header-row">
+      <a class="site-logo" href="../pages/home.html" aria-label="UK League Snooker, home"><span class="wm">UK League Sn<span class="o"></span><span class="o"></span>ker</span></a>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li class="nav-item" data-section="leagues" data-pages="leagues league tables clubs club archive league-info cups">
+            <a class="nav-link" href="../pages/leagues.html">Leagues</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/leagues.html">Find a league near you</a></li>
+              <li><a href="../pages/league.html">Cambridge &amp; District</a></li>
+              <li><a href="../pages/clubs.html">Clubs</a></li>
+              <li><a href="../pages/archive.html">Past seasons</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="results" data-pages="fixtures match submit-result live">
+            <a class="nav-link" href="../pages/fixtures.html">Results</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/fixtures.html">Fixtures and results</a></li>
+              <li><a href="../pages/match.html">Latest match card</a></li>
+              <li><a href="../pages/submit-result.html">Submit a result</a></li>
+              <li><a href="../pages/live.html">Live scores</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="players" data-pages="players player breaks account">
+            <a class="nav-link" href="../pages/breaks.html">Players</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/players.html">Player rankings</a></li>
+              <li><a href="../pages/player.html">Player profiles</a></li>
+              <li><a href="../pages/breaks.html">Centuries hall of fame</a></li>
+              <li><a href="../pages/account.html">Your alerts</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="championship" data-pages="championship">
+            <a class="nav-link" href="../pages/championship.html">Championship</a>
+          </li>
+          <li class="nav-item" data-section="community" data-pages="community">
+            <a class="nav-link" href="../pages/community.html">Community</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="#">Facebook group</a></li>
+              <li><a href="../pages/community.html">Forum archive</a></li>
+            </ul></div>
+          </li>
+          <li class="nav-item" data-section="run" data-pages="run-a-league setup sign-in admin">
+            <a class="nav-link" href="../pages/run-a-league.html">Run a league</a>
+            <div class="nav-flyout"><ul>
+              <li><a href="../pages/run-a-league.html">How it works and pricing</a></li>
+              <li><a href="../pages/setup.html">Start your league</a></li>
+              <li><a href="../pages/sign-in.html">Secretary sign in</a></li>
+              <li><a href="../pages/admin.html">League admin</a></li>
+            </ul></div>
+          </li>
+        </ul>
+      </nav>
+      <div class="site-utils">
+        <button type="button" class="util-btn" data-search-toggle aria-expanded="false" aria-controls="site-search">Search</button>
+        <a class="util-btn" href="../pages/sign-in.html">Sign in</a>
+        <button type="button" class="util-btn nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+    <div class="site-search" id="site-search" hidden>
+      <div class="container">
+        <div class="omni" role="search">
+          <form class="omni-row omni-form" autocomplete="off">
+            <label class="sr-only" for="hdr-q">Search for a league, club, team, player or postcode</label>
+            <input type="search" id="hdr-q" class="omni-input" placeholder="League, club, team, player or postcode" role="combobox" aria-expanded="false" aria-controls="hdr-results" aria-autocomplete="list">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <div class="omni-results" id="hdr-results" role="listbox" hidden></div>
+        </div>
+      </div>
+    </div>
+    <!-- Section sub-navigation: shown on pages that don't have a league's own tabs (R54) -->
+    <nav class="section-nav" aria-label="In this section" hidden>
+      <div class="container">
+        <ul data-section="leagues"><li><a href="../pages/leagues.html">Find a league</a></li><li><a href="../pages/league.html">Cambridge &amp; District</a></li><li><a href="../pages/clubs.html">Clubs</a></li><li><a href="../pages/archive.html">Past seasons</a></li></ul>
+        <ul data-section="results"><li><a href="../pages/fixtures.html">Fixtures and results</a></li><li><a href="../pages/match.html">Match cards</a></li><li><a href="../pages/submit-result.html">Submit a result</a></li><li><a href="../pages/live.html">Live scores</a></li></ul>
+        <ul data-section="players"><li><a href="../pages/players.html">Rankings</a></li><li><a href="../pages/player.html">Player profiles</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li><li><a href="../pages/account.html">Your alerts</a></li></ul>
+        <ul data-section="championship"><li><a href="../pages/championship.html">Championship 2026</a></li><li><a href="../pages/championship.html#ch-past">Past winners</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li></ul>
+        <ul data-section="community"><li><a href="#">Facebook group</a></li><li><a href="../pages/community.html">Forum archive</a></li><li><a href="../pages/championship.html">Championship</a></li></ul>
+        <ul data-section="run"><li><a href="../pages/run-a-league.html">How it works</a></li><li><a href="../pages/run-a-league.html#pricing">Pricing</a></li><li><a href="../pages/setup.html">Start your league</a></li><li><a href="../pages/sign-in.html">Secretary sign in</a></li><li><a href="../pages/admin.html">League admin</a></li></ul>
+      </div>
+    </nav>
   </header>
+
 
   <main id="main" class="flush">
     <aside class="proposal" aria-label="About this page">
       <div class="container">
         <p class="proposal-eyebrow">Foundations · applies to every page</p>
         <div class="proposal-grid">
-          <div><h2>What we're proposing</h2><p>The groundwork that sits under all five prototypes and that nobody sees when it is done properly: one site that works on any screen, readable type, proper headings and page titles, accessibility to WCAG 2.2 AA, new addresses with redirects from every old one, a single consent prompt and a clean-up of the data as it moves across.</p></div>
+          <div><h2>What we're proposing</h2><p>The groundwork that sits under all five prototypes and that nobody sees when it is done properly: one site that works on any screen, readable type, proper headings and page titles, accessibility to WCAG 2.2 AA, new addresses with redirects from every old one, and a clean-up of the data as it moves across.</p></div>
           <div><h2>Why</h2><p>The current site is built as it would have been in the mid-2000s: an HTML 4.01 page, no viewport setting, a 970-pixel layout in tables, 12-pixel Verdana and a separate copy of the site for phones. None of it is broken exactly, but it is why the site is hard to use on a phone and close to invisible to search engines. Rebuilding is cheaper than retrofitting all of it.</p></div>
         </div>
-        <p class="proposal-foot">Covers ideas 1 to 7, 10 and 35. The design system (idea 2) is applied across the whole pack from a single stylesheet.</p>
+        <p class="proposal-foot">The design system is applied across the whole pack from a single stylesheet.</p>
       </div>
     </aside>
     <div class="page-head"><div class="container"><h1>Foundations</h1><p class="lead">What every page of the new site is built on.</p></div></div>
     <div class="container" style="padding-top:2rem">
-      <nav class="inpage-nav" aria-label="On this page" style="position:static"><ul><li><a href="#f-responsive">One site</a></li><li><a href="#f-type">Type</a></li><li><a href="#f-titles">Titles and headings</a></li><li><a href="#f-a11y">Accessibility</a></li><li><a href="#f-urls">Addresses</a></li><li><a href="#f-consent">Consent and ads</a></li><li><a href="#f-data">Data clean-up</a></li><li><a href="../modules/library.html">Module library</a></li></ul></nav>
+      <nav class="inpage-nav" aria-label="On this page" style="position:static"><ul><li><a href="#f-responsive">One site</a></li><li><a href="#f-type">Type</a></li><li><a href="#f-titles">Titles and headings</a></li><li><a href="#f-a11y">Accessibility</a></li><li><a href="#f-urls">Addresses</a></li><li><a href="#f-consent">Advertising</a></li><li><a href="#f-data">Data clean-up</a></li><li><a href="../modules/library.html">Module library</a></li></ul></nav>
 
       <section id="f-responsive" aria-labelledby="fr-h">
-        <h2 id="fr-h" class="section-title">One site for every screen <small class="wf-req">(ideas 1, 2)</small></h2>
+        <h2 id="fr-h" class="section-title">One site for every screen</h2>
         <div class="grid grid-2">
           <div><p>One responsive site from 320 pixels up, with the same address on a phone and a laptop. The /mobile/ copy and its redirects are retired. Every prototype in this pack works at phone width; try any of them on your phone.</p><p>The League Snooker design system (colour, type and components) is applied from a single stylesheet, so a change to the brand is made once rather than page by page. Where we don't yet have photography, the images are snooker tables drawn to scale.</p></div>
           <div class="grid grid-2" style="gap:1rem"><div class="wf-placeholder" style="aspect-ratio:9/16;max-height:320px">Phone · 390px</div><div class="wf-placeholder ratio-4-3">Laptop · 1440px</div></div>
@@ -57,7 +143,7 @@
       </section>
 
       <section id="f-type" aria-labelledby="ft-h">
-        <h2 id="ft-h" class="section-title">Readable type <small class="wf-req">(idea 3)</small></h2>
+        <h2 id="ft-h" class="section-title">Readable type</h2>
         <div class="grid grid-2">
           <div class="panel"><p class="eyebrow">Now</p><p style="font-family:Verdana,sans-serif;font-size:12px">Played 3 | Won 3 | Drawn 0 | Lost 0 | For 23 | Against 7</p><p class="wf-meta">Verdana 12px, used for everything including results tables.</p></div>
           <div class="panel"><p class="eyebrow">Proposed</p><p class="num" style="font-size:17px">Played 3 · Won 3 · Drawn 0 · Lost 0 · For 23 · Against 7</p><p class="wf-meta">17px body text, 15px in dense tables, figures that line up in columns and 48px targets for anything you tap.</p></div>
@@ -65,7 +151,7 @@
       </section>
 
       <section id="f-titles" aria-labelledby="fti-h">
-        <h2 id="fti-h" class="section-title">Page titles and headings <small class="wf-req">(idea 4)</small></h2>
+        <h2 id="fti-h" class="section-title">Page titles and headings</h2>
         <p>Every page has one H1 and a title that says what and whose it is. These are what appear in search results and browser tabs.</p>
         <div class="table-wrap"><table class="lt"><caption>Title pattern</caption><thead><tr><th scope="col">Page</th><th scope="col">Title now</th><th scope="col">Title proposed</th></tr></thead><tbody>
           <tr><td>League table</td><td>Cambridge &amp; District Snooker League</td><td>Division 1 table · Cambridge &amp; District Snooker League</td></tr>
@@ -77,7 +163,7 @@
       </section>
 
       <section id="f-a11y" aria-labelledby="fa-h">
-        <h2 id="fa-h" class="section-title">Accessibility <small class="wf-req">(idea 5)</small></h2>
+        <h2 id="fa-h" class="section-title">Accessibility</h2>
         <ul style="padding-left:1.25rem;display:grid;gap:0.375rem;max-width:72ch">
           <li>WCAG 2.2 AA as the minimum, tested with a screen reader and keyboard before launch.</li>
           <li>Tables with captions and scoped headers; form and results given in words as well as symbols.</li>
@@ -88,7 +174,7 @@
       </section>
 
       <section id="f-urls" aria-labelledby="fu-h">
-        <h2 id="fu-h" class="section-title">Addresses and redirects <small class="wf-req">(idea 6)</small></h2>
+        <h2 id="fu-h" class="section-title">Addresses and redirects</h2>
         <p>New addresses read like the site: <span class="code" style="display:inline-block;padding:0.15rem 0.4rem">/leagues/cambridge-district-snooker/division-1/table</span>. Every old address gets a permanent redirect, so bookmarks, links in club newsletters and search rankings carry over.</p>
         <form id="redirect-form" class="omni-row" style="max-width:720px;margin-top:1rem">
           <label class="sr-only" for="old-url">Old address</label>
@@ -101,12 +187,12 @@
       </section>
 
       <section id="f-consent" aria-labelledby="fc-h">
-        <h2 id="fc-h" class="section-title">Consent and advertising <small class="wf-req">(ideas 7, 8)</small></h2>
-        <p>One consent prompt, with "Essential only" as easy to choose as "Accept" (see it on the <a href="../pages/home.html">community home</a>). Open programmatic advertising is replaced by one curated sponsor slot per page, which is what makes the second consent screen unnecessary.</p>
+        <h2 id="fc-h" class="section-title">Advertising</h2>
+        <p>Open programmatic advertising is replaced by one curated sponsor slot per page, chosen by the league or the community. Today's pages ask for consent twice, the second time on behalf of 210 advertising partners; without open advertising that second request disappears.</p>
       </section>
 
       <section id="f-data" aria-labelledby="fd-h">
-        <h2 id="fd-h" class="section-title">Data clean-up during migration <small class="wf-req">(ideas 10, 35)</small></h2>
+        <h2 id="fd-h" class="section-title">Data clean-up during migration</h2>
         <div class="table-wrap"><table class="lt"><caption>Checks run on every record as it moves across</caption><thead><tr><th scope="col">Check</th><th scope="col">Example on the live site</th><th scope="col">What happens</th></tr></thead><tbody>
           <tr><td>Handicaps in names</td><td>"Lee Mallen [-18]", "Matt Wilson -55", "Matt Wilson K"</td><td class="team-cell">Handicap moved to its own field with a history; duplicate players offered for merging</td></tr>
           <tr><td>Impossible dates</td><td>A season from 1 September 2023 to 30 April 2023</td><td class="team-cell">Flagged to the league secretary to correct</td></tr>
@@ -117,17 +203,45 @@
       </section>
     </div>
   </main>
-  <!-- Prototype pager (replaces the live site's footer, R49) -->
-  <footer class="proto-footer">
+  <!-- Site footer (R55) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="site-logo" href="../pages/home.html" aria-label="UK League Snooker, home"><span class="wm">UK League Sn<span class="o"></span><span class="o"></span>ker</span></a>
+          <p class="footer-strap">Every UK snooker and billiards league in one place.</p>
+        </div>
+        <div class="sponsor-slot footer-sponsor"><div class="wf-placeholder">Sponsor logo</div><span>Community sponsor</span></div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-column"><h2 class="footer-h">Find</h2><ul>
+          <li><a href="../pages/leagues.html">Find a league</a></li><li><a href="../pages/clubs.html">Clubs</a></li><li><a href="../pages/championship.html">Championship</a></li><li><a href="../pages/breaks.html">Centuries hall of fame</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">Players</h2><ul>
+          <li><a href="../pages/fixtures.html">Fixtures and results</a></li><li><a href="../pages/submit-result.html">Submit a result</a></li><li><a href="../pages/live.html">Live scores</a></li><li><a href="../pages/account.html">Your alerts</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">Secretaries</h2><ul>
+          <li><a href="../pages/run-a-league.html">How it works</a></li><li><a href="../pages/run-a-league.html#pricing">Pricing</a></li><li><a href="../pages/setup.html">Start your league</a></li><li><a href="../pages/sign-in.html">Secretary sign in</a></li></ul></div>
+        <div class="footer-column"><h2 class="footer-h">About</h2><ul>
+          <li><a href="#">About UK League Snooker</a></li><li><a href="#">Contact us</a></li><li><a href="../pages/community.html">Community</a></li><li><a href="#">Facebook group</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 UK League Snooker</span>
+        <ul class="footer-legal"><li><a href="#">Privacy</a></li><li><a href="#">Cookies</a></li><li><a href="#">Terms</a></li><li><a href="#">Accessibility</a></li></ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prototype pager: not part of the site (R49) -->
+  <div class="proto-footer">
     <div class="container">
       <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
       <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
     </div>
-  </footer>
+  </div>
   <script src="../js/data.js"></script>
   <script src="../js/wireframe.js"></script>
   <script src="../js/league.js"></script>
   <script src="../js/photos.js"></script>
+
 
 </body>
 </html>

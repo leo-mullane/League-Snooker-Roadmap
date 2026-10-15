@@ -146,10 +146,11 @@ for (const page of pages) {
   }
 }
 
-/* Every idea in the review is shown somewhere: the hub lists 1..48. */
-const hub = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
-for (let n = 1; n <= 48; n++) {
-  if (!new RegExp(`<tr><td>${n}</td>`).test(hub)) errors.push(`index.html: idea ${n} missing from the coverage table`);
+/* The prospect never sees the internal review, so no page should refer to its "ideas". */
+for (const page of pages) {
+  const text = fs.readFileSync(page, 'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<!--[\s\S]*?-->/g, '');
+  if (/\bideas?\b/i.test(text)) errors.push(`${path.relative(distDir, page)}: mentions "idea"; the review document is internal`);
+  if (new RegExp(['clerks', 'well'].join(''), 'i').test(text)) errors.push(`${path.relative(distDir, page)}: mentions the agency; the pack carries no agency name`);
 }
 
 for (const w of warnings) console.log(`  warn  ${w}`);

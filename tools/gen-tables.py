@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generates the snooker table illustrations used as image placeholders.
 
-Geometry is ported from ClerksWell's Snooker & Pool Layout Board (September 2026),
+Geometry is ported from the Snooker & Pool Layout Board (September 2026),
 which draws a full-size table to scale: 3,569 x 1,778 mm playing area, 52.5 mm
 balls, baulk line 737 mm from the bottom cushion, D of 292 mm radius, corner
 pockets 89 mm at the fall with jaws cut along the diagonal, middle pockets

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centuries hall of fame · UK League Snooker (prototype)</title>
+  <meta name="description" content="Every century and maximum made in league and cup matches across UK leagues on the site.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Players · Breaks</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A hall of fame for centuries across every league, filtered by season, league or player, with 147s at the top and a shareable card for each break. The same list, filtered to one league, is that league's Breaks tab.</p></div>
+          <div><h2>Why</h2><p>The all-league centuries page is one of the site's best features and one of its least visible. Because names carry handicaps, the same player appears under several spellings, and at least one season is listed as ending before it started (1 September 2023 to 30 April 2023). Clean player records fix both, and a century is the thing a player is most likely to share.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 37. Sample breaks, apart from the leagues named.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><h1>Centuries hall of fame</h1><p class="lead">Every century in league and cup matches, across all leagues on the site.</p></div></div>
+    <div class="container" style="padding-top:1.5rem">
+      <div class="toolbar">
+        <div class="field"><label for="hall-league">League</label><select id="hall-league"></select></div>
+        <div class="field"><label for="hall-season">Season</label><select id="hall-season"></select></div>
+        <div class="field"><label for="hall-q">Player</label><input type="search" id="hall-q" placeholder="Name"></div>
+        <label class="check"><input type="checkbox" id="hall-147"> 147s only</label>
+      </div>
+      <p class="result-count" id="hall-count" aria-live="polite"></p>
+      <div id="hall-host"></div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

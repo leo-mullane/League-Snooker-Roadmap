@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past seasons · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Every Cambridge & District Snooker League season since 2005/06: champions, tables, results and breaks.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · League hub · Past seasons</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>The current season by default everywhere, and an archive page with a card for each past season: who won each division, the highest break and a link that opens that season's tables, results and breaks.</p></div>
+          <div><h2>Why</h2><p>Cambridge &amp; District has 21 seasons online back to 2005/06, which is a remarkable record. At present every league page carries a dropdown with all 21 at the top, which is a lot of history to scroll past to reach this week's table, and nothing says who won what.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 22. Season dates are from the live site; the winners shown are sample data.</p>
+      </div>
+    </aside>
+    <!-- @@include league-head.html -->
+    <div class="container" style="padding-top:2rem">
+      <h1>Past seasons</h1>
+      <div class="field" style="max-width:420px"><label for="archive-q">Find a season or team</label><input type="search" id="archive-q" placeholder="For example 2012 or Histon"></div>
+      <div class="grid grid-3" id="archive-list"></div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

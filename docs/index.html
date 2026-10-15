@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK League Snooker: rebuild prototypes (V2, designed)</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/theme.css">
+</head>
+<body class="hub">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="./index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="./index.html" data-proto="index">Overview</a></li>
+          <li><a href="./pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="./pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="./pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="./pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="./pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="./pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hub-hero">
+      <div class="container">
+        <div class="hub-brand"><div class="wf-placeholder logo">UK League Snooker</div></div>
+        <h1>A rebuild of leaguesnooker.co.uk, in five templates</h1>
+        <p class="lead">The UK League Snooker site has carried the results of 87 leagues for more than twenty years. These prototypes show how a rebuilt site could work, from finding a league to submitting a result on a Friday night. Everything you would expect to click does something.</p>
+      </div>
+    </div>
+    <div class="container">
+      <section aria-labelledby="pr-h">
+        <h2 id="pr-h" class="hub-h2">The prototypes</h2>
+        <ul class="proto-list">
+          <li class="proto-card"><a class="proto-thumb" href="pages/home.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">Community home</div></a><div class="proto-body"><span class="proto-num">1</span><h3><a href="pages/home.html">Community home and league finder</a></h3><p>A homepage that starts with one search box for leagues, clubs, teams, players and postcodes, then splits into routes for players and secretaries. Includes the league finder with a map, the championship page and the forum archive.</p><p class="proto-try">Try: type "Whittlesford" or "CB22" into the search, then open the league finder and filter to Thursday veterans leagues.</p><a class="btn" href="pages/home.html">Open prototype</a></div></li>
+          <li class="proto-card"><a class="proto-thumb" href="pages/league.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">League hub</div></a><div class="proto-body"><span class="proto-num">2</span><h3><a href="pages/league.html">League hub</a></h3><p>A league's own pages, using Cambridge &amp; District and its real Division 1 results: this week, results as scoreboards, tables with form, fixtures by week, cups as brackets, club pages, past seasons and a contact form for the secretary.</p><p class="proto-try">Try: "Follow a team", then look at the overview, the tables and the fixtures. Add your team's fixtures to a calendar.</p><a class="btn" href="pages/league.html">Open prototype</a></div></li>
+          <li class="proto-card"><a class="proto-thumb" href="pages/match.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">Match centre</div></a><div class="proto-body"><span class="proto-num">3</span><h3><a href="pages/match.html">Match centre</a></h3><p>A match card for every result, the captain's four-step result submission with confirmation from the other side and optional live scoring for finals.</p><p class="proto-try">Try: submit the real outstanding result, JP's v Newton 1, and make the frames not add up.</p><a class="btn" href="pages/match.html">Open prototype</a></div></li>
+          <li class="proto-card"><a class="proto-thumb" href="pages/player.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">Players</div></a><div class="proto-body"><span class="proto-num">4</span><h3><a href="pages/player.html">Players</a></h3><p>A career profile across seasons and leagues with handicap history and head to head, rankings with a qualifying number of frames, the centuries hall of fame and a player's alerts and privacy settings.</p><p class="proto-try">Try: change the head to head opponent, then switch your name to initials in alerts and privacy and look at a match card.</p><a class="btn" href="pages/player.html">Open prototype</a></div></li>
+          <li class="proto-card"><a class="proto-thumb" href="pages/run-a-league.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">Run a league</div></a><div class="proto-body"><span class="proto-num">5</span><h3><a href="pages/run-a-league.html">Run a league</a></h3><p>The secretary's side: how it works and a pricing calculator, a guided setup that replaces the 21 questions by email, sign-in with password reset and an admin area for entering and approving results, helpers and exports.</p><p class="proto-try">Try: price a 20-team league, start a league and get to the preview, then enter scores in the admin grid.</p><a class="btn" href="pages/run-a-league.html">Open prototype</a></div></li>
+          <li class="proto-card"><a class="proto-thumb" href="pages/foundations.html" tabindex="-1" aria-hidden="true"><div class="wf-placeholder">Foundations</div></a><div class="proto-body"><span class="proto-num">+</span><h3><a href="pages/foundations.html">Foundations</a></h3><p>What sits under every page: one responsive site, readable type, titles and headings, accessibility, new addresses with redirects from the old ones, consent and the data clean-up. Plus the module library.</p><p class="proto-try">Try: paste an old leaguesnooker.co.uk address into the redirect checker.</p><a class="btn btn-secondary" href="pages/foundations.html">Open</a></div></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="cov-h">
+        <h2 id="cov-h" class="hub-h2">Where to find each idea</h2>
+        <p>All 48 ideas from our review and the page that shows each one.</p>
+        <div class="table-wrap"><table class="cov"><caption class="sr-only">Ideas and the pages that show them</caption><thead><tr><th scope="col">#</th><th scope="col">Idea</th><th scope="col">Shown on</th></tr></thead><tbody>
+          <tr><td>1</td><td>One responsive site for every screen</td><td><a href="pages/foundations.html#f-responsive">Foundations</a> · <a href="pages/home.html">every page</a></td></tr>
+          <tr><td>2</td><td>A new design system</td><td><a href="pages/foundations.html#f-responsive">Foundations (applied in round 2)</a></td></tr>
+          <tr><td>3</td><td>Readable type and figures that line up</td><td><a href="pages/foundations.html#f-type">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>4</td><td>Proper headings and page titles</td><td><a href="pages/foundations.html#f-titles">Foundations</a></td></tr>
+          <tr><td>5</td><td>Accessible tables and images</td><td><a href="pages/foundations.html#f-a11y">Foundations</a> · <a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>6</td><td>Readable addresses, with redirects from the old ones</td><td><a href="pages/foundations.html#f-urls">Foundations</a></td></tr>
+          <tr><td>7</td><td>One cookie prompt</td><td><a href="pages/home.html">Community home</a> · <a href="pages/foundations.html#f-consent">Foundations</a></td></tr>
+          <tr><td>8</td><td>Curated sponsors instead of open ads</td><td><a href="pages/home.html">Community home</a> · <a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>9</td><td>A contact form instead of published email addresses</td><td><a href="pages/league-info.html#contact">League information</a></td></tr>
+          <tr><td>10</td><td>Fix character encoding</td><td><a href="pages/foundations.html#f-data">Foundations</a></td></tr>
+          <tr><td>11</td><td>Search-first homepage</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>12</td><td>Find a league near you</td><td><a href="pages/leagues.html">League finder</a></td></tr>
+          <tr><td>13</td><td>Filters for night, game, format and more</td><td><a href="pages/leagues.html">League finder</a></td></tr>
+          <tr><td>14</td><td>This week across the community</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>15</td><td>A home for the championship</td><td><a href="pages/championship.html">Championship</a></td></tr>
+          <tr><td>16</td><td>Shorter testimonials</td><td><a href="pages/home.html">Community home</a></td></tr>
+          <tr><td>17</td><td>Separate routes for players and secretaries</td><td><a href="pages/home.html">Community home</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>18</td><td>Retire the forum to an archive</td><td><a href="pages/community.html">Forum archive</a></td></tr>
+          <tr><td>19</td><td>League overview page</td><td><a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>20</td><td>Eight tabs, not eighteen links</td><td><a href="pages/league.html">League hub</a></td></tr>
+          <tr><td>21</td><td>Division switcher</td><td><a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>22</td><td>Past seasons archive</td><td><a href="pages/archive.html">Past seasons</a></td></tr>
+          <tr><td>23</td><td>Fixtures by week, with "My team"</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>24</td><td>Show the real match date</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>25</td><td>Form guide and movement</td><td><a href="pages/tables.html">Tables</a></td></tr>
+          <tr><td>26</td><td>Add fixtures to your calendar</td><td><a href="pages/fixtures.html">Fixtures and results</a></td></tr>
+          <tr><td>27</td><td>Proper club pages</td><td><a href="pages/clubs.html">Clubs</a> · <a href="pages/club.html?club=whittlesford">Club</a></td></tr>
+          <tr><td>28</td><td>League branding inside the system</td><td><a href="pages/league.html">League overview</a></td></tr>
+          <tr><td>29</td><td>Cup draws as brackets</td><td><a href="pages/cups.html">Cups</a></td></tr>
+          <tr><td>30</td><td>Match card page</td><td><a href="pages/match.html">Match card</a></td></tr>
+          <tr><td>31</td><td>Result submission on a phone</td><td><a href="pages/submit-result.html">Submit a result</a></td></tr>
+          <tr><td>32</td><td>Live scoring (optional)</td><td><a href="pages/live.html">Live scoring</a></td></tr>
+          <tr><td>33</td><td>"Results are in" alerts</td><td><a href="pages/account.html">Alerts and privacy</a></td></tr>
+          <tr><td>34</td><td>Player profile and career</td><td><a href="pages/player.html">Player profile</a></td></tr>
+          <tr><td>35</td><td>Handicap as data, not part of a name</td><td><a href="pages/player.html">Player profile</a> · <a href="pages/foundations.html#f-data">Foundations</a></td></tr>
+          <tr><td>36</td><td>Fairer rankings display</td><td><a href="pages/players.html">Rankings</a></td></tr>
+          <tr><td>37</td><td>Centuries hall of fame</td><td><a href="pages/breaks.html">Hall of fame</a></td></tr>
+          <tr><td>38</td><td>Player privacy choices</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/player.html">Player profile</a></td></tr>
+          <tr><td>39</td><td>Follow a team or player</td><td><a href="pages/account.html">Alerts and privacy</a> · <a href="pages/league.html">League hub</a></td></tr>
+          <tr><td>40</td><td>Start your league online</td><td><a href="pages/setup.html">Start your league</a></td></tr>
+          <tr><td>41</td><td>Pricing calculator</td><td><a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
+          <tr><td>42</td><td>Pay online</td><td><a href="pages/setup.html">Start your league</a> · <a href="pages/run-a-league.html#pricing">Run a league</a></td></tr>
+          <tr><td>43</td><td>Faster results entry for secretaries</td><td><a href="pages/admin.html">League admin</a></td></tr>
+          <tr><td>44</td><td>Password reset and helpers</td><td><a href="pages/sign-in.html">Sign in</a> · <a href="pages/admin.html">League admin</a></td></tr>
+          <tr><td>45</td><td>Refresh the Join copy</td><td><a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>46</td><td>Embeddable tables</td><td><a href="pages/league-info.html#embed">League information</a></td></tr>
+          <tr><td>47</td><td>Work with the EPSB</td><td><a href="pages/league.html">League overview</a> · <a href="pages/run-a-league.html">Run a league</a></td></tr>
+          <tr><td>48</td><td>Data export</td><td><a href="pages/admin.html">League admin</a></td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section class="hub-notes" aria-labelledby="rv-h">
+        <div>
+          <h2 id="rv-h" class="hub-h2">How to review</h2>
+          <ul>
+            <li>This round applies the new League Snooker design system: baize greens for structure, chalk blue for anything you can click, and the seven ball colours kept for scores and statistics. Comments on the look are welcome now, as well as on what each page does.</li><li>The live site has almost no photography of its own, so most images are drawn as a snooker table in the brand colours. The championship venue photo comes from leaguesnooker.co.uk.</li>
+            <li>Turn <b>Notes</b> on (top right) to see what each page proposes and why, plus numbered notes: yellow for behaviour, red for questions we need you to answer.</li>
+            <li>League, team and club names are real, as are Cambridge &amp; District's Division 1 results for the first three weeks. Player names and everything else are sample data.</li>
+            <li>Try them on your phone. They are built for it.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="hub-h2">Also in the pack</h2>
+          <ul class="hub-links">
+            <li><a href="modules/library.html">Module library</a><span>Every reusable module, shown once</span></li>
+            <li><a href="pages/foundations.html">Foundations</a><span>Responsive, accessibility, addresses and data</span></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/wireframe.js"></script>
+  <script src="js/league.js"></script>
+  <script src="js/photos.js"></script>
+</body>
+</html>

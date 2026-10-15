@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module library · League Snooker prototypes</title>
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main">
+    <div class="container">
+      <h1>Module library</h1>
+      <p class="lead">Every reusable module in the prototypes, shown once. Pages are built from these.</p>
+
+      <!-- Scoreboard card (R19, R30) -->
+      <section><h2 class="section-title">Scoreboard card</h2>
+        <div class="score-cards" style="max-width:600px">
+          <article class="score-card"><div class="meta"><span>Div 1 · Week 3</span><span>Fri 9 Oct</span></div><div class="teams"><div class="team">JP's</div><div class="score">10 – 0</div><div class="team away">Newton 2</div></div><div class="foot"><span>High break: <span class="brk">58</span></span><a href="#">Match card</a></div></article>
+          <article class="score-card due"><div class="meta"><span>Div 1 · Week 2</span><span>Fri 2 Oct</span></div><div class="teams"><div class="team">JP's</div><div class="score">v</div><div class="team away">Newton 1</div></div><div class="foot"><span class="status pending">Result due</span><a href="#">Submit result</a></div></article>
+        </div>
+      </section>
+
+      <!-- Fixture row (R23) -->
+      <section><h2 class="section-title">Fixture week</h2>
+        <section class="week this-week" style="max-width:860px"><header><h3>Week 4 · Friday 16 October · this week</h3><span class="wf-meta">5 fixtures</span></header>
+          <div class="fx"><div class="home"><a href="#">Sawston 3</a><span class="venue">Sawston C.I</span></div><div class="mid">v</div><div class="away"><a href="#">Whittlesford 2</a></div><div class="act"><span class="wf-meta">7.30pm</span></div></div>
+          <div class="fx"><div class="home"><a href="#">Cheveley Road (Thurs)</a><span class="venue">Cheveley Road</span></div><div class="mid">6 – 4</div><div class="away"><a href="#">Sawston 3</a></div><div class="act"><a href="#">Match card</a></div></div>
+        </section>
+      </section>
+
+      <!-- League table (R25) -->
+      <section><h2 class="section-title">League table row</h2>
+        <div class="lt-wrap" style="max-width:860px"><table class="lt"><caption>Division 1 · sample</caption><thead><tr><th scope="col">#</th><th scope="col">Team</th><th scope="col" class="n">P</th><th scope="col" class="n">F</th><th scope="col">Form</th></tr></thead><tbody>
+          <tr><td class="n">1</td><th scope="row" class="team-cell"><a href="#">Whittlesford 2</a></th><td class="n">3</td><td class="n"><b>23</b></td><td><span class="form"><span class="W">W</span><span class="W">W</span><span class="W">W</span></span></td></tr>
+          <tr class="mine"><td class="n">2</td><th scope="row" class="team-cell"><a href="#">Cheveley Road (Thurs)</a><span class="mv up">▲1</span></th><td class="n">3</td><td class="n"><b>19</b></td><td><span class="form"><span class="D">D</span><span class="W">W</span><span class="W">W</span></span></td></tr>
+        </tbody></table></div>
+      </section>
+
+      <!-- Breaks and tags (R30, R35, R36) -->
+      <section><h2 class="section-title">Breaks, handicaps and status</h2>
+        <p class="row"><span class="brk">37</span><span class="brk century">104</span><span class="brk max">147</span><span class="dash">–</span><span class="hcp">Hcp −10</span><span class="status pending">Result due</span><span class="status done">Published</span><span class="badge">EPSB registered league</span></p>
+      </section>
+
+      <!-- Stepper (R31, R40) -->
+      <section><h2 class="section-title">Stepper</h2>
+        <ol class="stepper s4" style="max-width:860px"><li class="done">Match</li><li class="current">Frames</li><li>Breaks and card</li><li>Check and send</li></ol>
+      </section>
+
+      <!-- Sponsor slot (R08) -->
+      <section><h2 class="section-title">Sponsor slot</h2>
+        <div class="sponsor-slot" style="max-width:600px"><div class="wf-placeholder">Sponsor logo</div><span>League sponsor · chosen by the league</span></div>
+      </section>
+
+      <!-- Annotations -->
+      <section><h2 class="section-title">Annotations</h2>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Yellow notes explain behaviour a screenshot can't show.</div>
+        <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Red notes are open questions for the client.</div>
+      </section>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

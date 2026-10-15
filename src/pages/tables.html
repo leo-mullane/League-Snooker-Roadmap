@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tables · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Division 1 and Division 2 tables for the Cambridge & District Snooker League, with form and movement.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · League hub · Tables</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Divisions switch with a single tap and the choice is remembered. Each table shows recent form and how far a team has moved since last week, and the team you follow is highlighted. On a phone the less-used columns drop away so nothing scrolls sideways.</p></div>
+          <div><h2>Why</h2><p>Divisions are picked today from a dropdown that reloads the page, and the table shows totals only. The numbers here are the real Division 1 table after week 3; the form and movement are worked out from the same results, so there is nothing extra for the secretary to enter.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 3, 4, 5, 21 and 25.</p>
+      </div>
+    </aside>
+    <!-- @@include league-head.html -->
+    <div class="container" style="padding-top:2rem">
+      <h1>Tables</h1>
+      <div class="toolbar"><div id="div-switch"></div><p class="wf-meta" id="team-note" hidden></p></div>
+      <div id="tables-host"></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Accessibility</span>Each table has a caption and scoped row and column headers, so a screen reader announces "Whittlesford 2, F, 23" rather than a string of numbers. Form is given as text ("Last 3: W, W, W") as well as the boxes.</div>
+      <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Cambridge &amp; District ranks on frames won, so there is no points column. Leagues that use points will show a Pts column; is there any league whose tie-break rules we should check before build?</div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

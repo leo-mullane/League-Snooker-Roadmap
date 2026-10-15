@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League admin · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Enter results, approve captains' submissions, manage helpers and export data.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Run a league · Admin</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A secretary's week on one screen: a fast entry grid built from the fixture list (type the frame scores, Enter moves on, the row checks itself), a queue of captains' submissions to approve or query, helpers with their own sign-in and exports of everything.</p></div>
+          <div><h2>Why</h2><p>The site says a week's results for four divisions typically take an hour to enter. With captains submitting from their phones the secretary's job becomes checking rather than typing, and the grid makes the typing that remains quicker. The Join page already suggests passing match cards to someone else when the secretary is short of time; a helper role makes that official, with their own password.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 43, 44 and 48. Type frame scores into the grid (they must total 10), approve the waiting submission, invite a helper or export a file.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><p class="eyebrow">Cambridge &amp; District Snooker League · signed in as the secretary</p><h1>League admin</h1></div></div>
+    <div class="container" style="padding-top:2rem">
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" role="tab" data-tab="ad-results" aria-selected="true">Results</button>
+        <button class="tab" type="button" role="tab" data-tab="ad-queue" aria-selected="false">Captains' submissions (1)</button>
+        <button class="tab" type="button" role="tab" data-tab="ad-helpers" aria-selected="false">Helpers</button>
+        <button class="tab" type="button" role="tab" data-tab="ad-export" aria-selected="false">Export</button>
+      </div>
+      <div>
+        <div class="tab-panel active" id="ad-results" role="tabpanel">
+          <div class="section-head"><h2>Enter results</h2><span class="wf-meta" id="entry-week"></span></div>
+          <div class="table-wrap"><table class="entry-grid"><caption class="sr-only">Team scores for this week</caption><thead><tr><th scope="col">Match</th><th scope="col">Home</th><th scope="col">Away</th><th scope="col">Status</th><th scope="col"><span class="sr-only">Detail</span></th></tr></thead><tbody id="entry-grid"></tbody></table></div>
+          <div class="row" style="margin-top:1rem"><button type="button" class="btn" id="entry-save">Publish ready results</button><span class="wf-meta">Players following these teams are told when you publish.</span></div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Enter moves to the next box, so a whole division can be typed without the mouse. Frames and breaks for each match can be added now or later from the link on the row; captains' submissions arrive with them filled in.</div>
+        </div>
+        <div class="tab-panel" id="ad-queue" role="tabpanel">
+          <h2>Waiting for you</h2>
+          <ul style="list-style:none" id="queue">
+            <li class="panel stack"><div class="row between"><b>JP's 6 – 4 Newton 1</b><span class="status pending">Queried by Newton 1</span></div><p class="wf-meta">Division 1 · Friday 2 October · submitted by JP's captain, sample. Newton 1's captain says game 3 finished 1–1, not 2–0.</p><div class="row"><a href="~/pages/match.html">View both versions</a><button type="button" class="btn btn-sm" data-q="approve">Publish as submitted</button><button type="button" class="btn btn-secondary btn-sm" data-q="query">Ask both captains</button></div></li>
+          </ul>
+        </div>
+        <div class="tab-panel" id="ad-helpers" role="tabpanel">
+          <h2>People who can help</h2>
+          <ul style="list-style:none;display:grid;gap:0.5rem;max-width:640px" id="helper-list">
+            <li class="row between"><span><b>[Secretary name]</b> <small>Secretary · full access</small></span><span class="status done">Active</span></li>
+          </ul>
+          <form id="helper-form" novalidate class="panel" style="max-width:640px;margin-top:1rem">
+            <h3>Invite someone</h3>
+            <div class="grid grid-2" style="gap:1rem">
+              <div class="field"><label for="helper-name">Name</label><input type="text" id="helper-name" required data-error="Enter their name."></div>
+              <div class="field"><label for="helper-email">Email</label><input type="email" id="helper-email" required data-error="Enter their email address."></div>
+            </div>
+            <div class="field"><label for="helper-role">Can</label><select id="helper-role"><option>Results helper · enter and approve results</option><option>News editor · news, pictures and documents</option><option>Co-secretary · full access</option></select></div>
+            <button class="btn btn-secondary" type="submit">Send invitation</button>
+          </form>
+        </div>
+        <div class="tab-panel" id="ad-export" role="tabpanel">
+          <h2>Export your league's data</h2>
+          <p>Spreadsheet files (CSV) for this season. Your data is yours; you can take it with you at any time.</p>
+          <div class="row"><button type="button" class="btn btn-secondary" data-export="tables">Tables</button><button type="button" class="btn btn-secondary" data-export="results">Results</button><button type="button" class="btn btn-secondary" data-export="players">Players</button></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tables · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Division 1 and Division 2 tables for the Cambridge & District Snooker League, with form and movement.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · League hub · Tables</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Divisions switch with a single tap and the choice is remembered. Each table shows recent form and how far a team has moved since last week, and the team you follow is highlighted. On a phone the less-used columns drop away so nothing scrolls sideways.</p></div>
+          <div><h2>Why</h2><p>Divisions are picked today from a dropdown that reloads the page, and the table shows totals only. The numbers here are the real Division 1 table after week 3; the form and movement are worked out from the same results, so there is nothing extra for the secretary to enter.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 3, 4, 5, 21 and 25.</p>
+      </div>
+    </aside>
+    <!-- League head: branding within the system (R28), sub-navigation (R20), season (R22) -->
+    <div class="league-head">
+      <div class="container">
+        <div class="league-head-row">
+          <div class="wf-placeholder league-logo">League logo</div>
+          <div class="league-head-text">
+            <p class="crumb"><a href="../pages/leagues.html">Leagues</a> › East of England · Snooker · Fridays</p>
+            <p class="league-name">Cambridge &amp; District Snooker League</p>
+            <p class="wf-meta">Season 2026/27 · Friday 25 September to Friday 25 June · <a href="../pages/archive.html">Past seasons</a></p>
+          </div>
+          <div class="league-head-actions">
+            <span class="badge" title="Registered with the national governing body (R47)">EPSB registered league</span>
+            <button type="button" class="btn btn-secondary btn-sm" data-follow-open>Follow a team</button>
+          </div>
+        </div>
+          <!-- League hub sub-navigation: eight tabs instead of eighteen links (R20) -->
+          <nav class="hub-tabs" aria-label="League sections">
+            <ul>
+              <li><a href="../pages/league.html" data-hub="league">Overview</a></li>
+              <li><a href="../pages/tables.html" data-hub="tables">Tables</a></li>
+              <li><a href="../pages/fixtures.html" data-hub="fixtures">Fixtures &amp; results</a></li>
+              <li><a href="../pages/players.html" data-hub="players">Players</a></li>
+              <li><a href="../pages/breaks.html?league=cambridge" data-hub="breaks">Breaks</a></li>
+              <li><a href="../pages/cups.html" data-hub="cups">Cups</a></li>
+              <li><a href="../pages/clubs.html" data-hub="clubs club">Clubs</a></li>
+              <li><a href="../pages/league-info.html" data-hub="league-info archive">More</a></li>
+            </ul>
+          </nav>
+
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:2rem">
+      <h1>Tables</h1>
+      <div class="toolbar"><div id="div-switch"></div><p class="wf-meta" id="team-note" hidden></p></div>
+      <div id="tables-host"></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Accessibility</span>Each table has a caption and scoped row and column headers, so a screen reader announces "Whittlesford 2, F, 23" rather than a string of numbers. Form is given as text ("Last 3: W, W, W") as well as the boxes.</div>
+      <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Cambridge &amp; District ranks on frames won, so there is no points column. Leagues that use points will show a Pts column; is there any league whose tie-break rules we should check before build?</div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

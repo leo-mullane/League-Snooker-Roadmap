@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge &amp; District Snooker League · this week, results and table (prototype)</title>
+  <meta name="description" content="Fixtures, results, tables and breaks for the Cambridge & District Snooker League, Fridays, two divisions.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · League hub · Overview</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Each league gets a home page that leads with what players come for on a league night: this week's fixtures, last week's results as scoreboards, the top of the table and the best breaks. Eight tabs take you to everything else. The league can add its own logo and sponsor, and the secretary is reached through a form rather than a published email address.</p></div>
+          <div><h2>Why</h2><p>On a phone, the Cambridge &amp; District table currently starts around 700 pixels down, below the site navigation, the administrator's email address, an eighteen-link menu, the cups row and an advert. On a desktop the page is fixed at 970 pixels wide. Nothing in the data needs to change for this; it is a question of what goes first.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 8, 9, 19, 20, 22, 28 and 47. Try "Follow a team": the team then comes first in this week's fixtures and is highlighted in every table.</p>
+      </div>
+    </aside>
+
+    <!-- @@include league-head.html -->
+
+    <div class="container" style="padding-top:2rem">
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Content</span>League head (idea 28): the logo, header photo and sponsor are set by the secretary within the design system's rules. The "EPSB registered" badge (idea 47) appears for leagues registered with the national governing body. The administrator's email address is no longer shown on any page (idea 9).</div>
+      <div id="ov-due"></div>
+      <div class="cols-8-4">
+        <div>
+          <!-- This week (R19) -->
+          <section aria-labelledby="tw-h">
+            <div class="section-head"><h2 id="tw-h">This week</h2><span class="wf-meta" id="ov-week-label"></span></div>
+            <div class="panel" style="padding:0" id="ov-week"></div>
+            <p style="margin-top:0.75rem"><a href="~/pages/fixtures.html?week=this">All fixtures</a></p>
+          </section>
+          <!-- Latest results (R19, R30) -->
+          <section aria-labelledby="lr-h">
+            <div class="section-head"><h2 id="lr-h">Latest results</h2><span class="wf-meta" id="ov-results-label"></span></div>
+            <div class="score-cards" id="ov-results"></div>
+          </section>
+        </div>
+        <aside aria-label="Table, breaks and league news">
+          <section aria-labelledby="tb-h">
+            <div class="section-head"><h2 id="tb-h">Table</h2><a href="~/pages/tables.html">Full tables</a></div>
+            <div id="ov-table"></div>
+          </section>
+          <section aria-labelledby="br-h">
+            <div class="section-head"><h2 id="br-h">Best breaks this season</h2><a href="~/pages/breaks.html?league=cambridge">All</a></div>
+            <ul class="stack" style="list-style:none;gap:0.5rem" id="ov-breaks"></ul>
+          </section>
+          <section aria-labelledby="nw-h">
+            <div class="section-head"><h2 id="nw-h">News</h2><a href="~/pages/league-info.html">More</a></div>
+            <article class="result-item" style="padding-top:0"><h3 style="font-size:1rem"><a href="~/pages/league-info.html#news">Tony Mitchell Cup draw made</a></h3><small>12 October · [Sample news item from the secretary]</small></article>
+          </section>
+          <!-- Sponsor (R08) -->
+          <div class="sponsor-slot"><div class="wf-placeholder">Sponsor logo</div><span>League sponsor · chosen by the league</span></div>
+        </aside>
+      </div>
+      <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Advertising: the current pages carry open Google ads above the results. Would leagues prefer one curated sponsor slot, with an ad-free option they can pay for? It changes the revenue model, so it is your call rather than ours.</div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

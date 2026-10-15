@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run your snooker or billiards league online · pricing · UK League Snooker (prototype)</title>
+  <meta name="description" content="Tables, results, player stats and breaks for your league, generated from the match cards. First season free, then £1.50 per player per season.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Run a league · How it works and pricing</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A page written for league secretaries: what they get, how much of their week it takes, what it costs (with a calculator rather than worked examples), how payment works and a button to start. It finishes with the leagues already on the site and the link with the national governing body.</p></div>
+          <div><h2>Why</h2><p>The current Join page explains pricing in two paragraphs of examples, quotes a build value of £35,000 to £40,000, describes the administrator as "he" throughout and still has instructions for Internet Explorer 6. The offer itself is good and cheap. The page undersells it.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 17, 41, 42, 45 and 47. Prices are the current published rates.</p>
+      </div>
+    </aside>
+    <div class="page-head">
+      <div class="container cols-8-4">
+        <div>
+          <p class="eyebrow">For league secretaries</p>
+          <h1>Run your league here</h1>
+          <p class="lead">Put the results in once and the site does the rest: tables, player stats, breaks, cups and the history of every season.</p>
+          <div class="row"><a class="btn" href="~/pages/setup.html">Start your league</a><a class="btn btn-secondary" href="#pricing">See what it costs</a><a href="~/pages/sign-in.html">Secretary sign in</a></div>
+        </div>
+        <div class="wf-placeholder ratio-4-3">Screenshot · a league's results entry screen</div>
+      </div>
+    </div>
+    <div class="container" style="padding-top:2.5rem">
+      <section aria-labelledby="how-h">
+        <h2 id="how-h" class="section-title">How it works</h2>
+        <ol class="grid grid-3" style="list-style:none">
+          <li class="panel stack"><p class="eyebrow">Before the season</p><h3>Set up once</h3><p>Add your clubs, teams and fixtures once. Tell us how your league scores and the site follows your rules.</p></li>
+          <li class="panel stack"><p class="eyebrow">Each week</p><h3>Results in, everything updates</h3><p>Captains can submit results from their phone for you to approve, or you type them in from the match cards. For a league with four divisions it typically takes about an hour a week.</p></li>
+          <li class="panel stack"><p class="eyebrow">All season</p><h3>Players keep up</h3><p>Players follow their team, get told when results are in and can look back at every frame they have played on the site.</p></li>
+        </ol>
+      </section>
+
+      <!-- Pricing calculator (R41) -->
+      <section id="pricing" aria-labelledby="pr-h">
+        <h2 id="pr-h" class="section-title">What it costs</h2>
+        <div class="calc" id="calc">
+          <div>
+            <div class="field"><label for="c-format">Your league plays</label><select id="c-format"><option value="teams">Team matches</option><option value="singles">Singles only</option></select></div>
+            <div id="c-team-fields">
+              <div class="field"><label for="c-teams">Number of teams</label><input type="number" id="c-teams" value="20" min="1" inputmode="numeric"></div>
+              <div class="field"><label for="c-per">Players per team in a match</label><input type="number" id="c-per" value="5" min="1" inputmode="numeric"><p class="field-hint">We charge for this many per team, however many you register.</p></div>
+            </div>
+            <div id="c-singles-fields" hidden>
+              <div class="field"><label for="c-players">Number of players</label><input type="number" id="c-players" value="40" min="1" inputmode="numeric"></div>
+            </div>
+          </div>
+          <div class="calc-out" id="c-out" aria-live="polite"></div>
+        </div>
+        <div class="grid grid-3" style="margin-top:1.5rem">
+          <div class="panel"><h3>No commitment</h3><p>After your free season there is no obligation to carry on.</p></div>
+          <div class="panel"><h3>Pay online</h3><p>By card or Direct Debit once a season, with an invoice for your treasurer.</p></div>
+          <div class="panel"><h3>Ad-free option</h3><p>[Price to be agreed] per season to remove sponsor slots from your league's pages.</p></div>
+        </div>
+        <div class="wf-note query" data-note="1"><span class="wf-note-label">Question for the client</span>Do you want to offer online payment (idea 42) and an ad-free option? Neither exists today, and both need a price from you.</div>
+      </section>
+
+      <section aria-labelledby="who-h">
+        <h2 id="who-h" class="section-title">Leagues already here</h2>
+        <p>87 leagues, from Andover to Wirral, including <a href="~/pages/league.html">Cambridge &amp; District</a>, which has every season online back to 2005/06.</p>
+        <div class="row" style="margin-top:1rem"><span class="badge">EPSB registered leagues welcome</span><a href="~/pages/leagues.html">See them on the map</a></div>
+        <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>The EPSB refers to "hundreds of active leagues" in England and runs a league registration scheme. Is there an existing relationship we could build on, for example a badge for registered leagues and joint promotion of the two championships at Landywood?</div>
+      </section>
+
+      <section aria-labelledby="faq2-h">
+        <h2 id="faq2-h" class="section-title">Questions secretaries ask</h2>
+        <div class="accordion" data-single>
+          <div class="accordion-item"><button class="accordion-title" type="button" aria-expanded="false">Can someone else enter results for me?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Yes. Invite a results helper with their own sign-in, or let captains submit results for you to approve.</p></div></div>
+          <div class="accordion-item"><button class="accordion-title" type="button" aria-expanded="false">Will it handle our scoring system?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>Points or frames, draws, handicaps that update after each game, doubles, singles leagues, penalties and neutral cup venues are all set up when you join.</p></div></div>
+          <div class="accordion-item"><button class="accordion-title" type="button" aria-expanded="false">What happens to our old seasons?<span class="accordion-icon" aria-hidden="true">▾</span></button><div class="accordion-content"><p>They stay online for good, so players can look back at every result.</p></div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

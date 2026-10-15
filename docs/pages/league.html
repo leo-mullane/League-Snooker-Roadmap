@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge &amp; District Snooker League · this week, results and table (prototype)</title>
+  <meta name="description" content="Fixtures, results, tables and breaks for the Cambridge & District Snooker League, Fridays, two divisions.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 2 of 5 · League hub · Overview</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Each league gets a home page that leads with what players come for on a league night: this week's fixtures, last week's results as scoreboards, the top of the table and the best breaks. Eight tabs take you to everything else. The league can add its own logo and sponsor, and the secretary is reached through a form rather than a published email address.</p></div>
+          <div><h2>Why</h2><p>On a phone, the Cambridge &amp; District table currently starts around 700 pixels down, below the site navigation, the administrator's email address, an eighteen-link menu, the cups row and an advert. On a desktop the page is fixed at 970 pixels wide. Nothing in the data needs to change for this; it is a question of what goes first.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 8, 9, 19, 20, 22, 28 and 47. Try "Follow a team": the team then comes first in this week's fixtures and is highlighted in every table.</p>
+      </div>
+    </aside>
+
+    <!-- League head: branding within the system (R28), sub-navigation (R20), season (R22) -->
+    <div class="league-head">
+      <div class="container">
+        <div class="league-head-row">
+          <div class="wf-placeholder league-logo">League logo</div>
+          <div class="league-head-text">
+            <p class="crumb"><a href="../pages/leagues.html">Leagues</a> › East of England · Snooker · Fridays</p>
+            <p class="league-name">Cambridge &amp; District Snooker League</p>
+            <p class="wf-meta">Season 2026/27 · Friday 25 September to Friday 25 June · <a href="../pages/archive.html">Past seasons</a></p>
+          </div>
+          <div class="league-head-actions">
+            <span class="badge" title="Registered with the national governing body (R47)">EPSB registered league</span>
+            <button type="button" class="btn btn-secondary btn-sm" data-follow-open>Follow a team</button>
+          </div>
+        </div>
+          <!-- League hub sub-navigation: eight tabs instead of eighteen links (R20) -->
+          <nav class="hub-tabs" aria-label="League sections">
+            <ul>
+              <li><a href="../pages/league.html" data-hub="league">Overview</a></li>
+              <li><a href="../pages/tables.html" data-hub="tables">Tables</a></li>
+              <li><a href="../pages/fixtures.html" data-hub="fixtures">Fixtures &amp; results</a></li>
+              <li><a href="../pages/players.html" data-hub="players">Players</a></li>
+              <li><a href="../pages/breaks.html?league=cambridge" data-hub="breaks">Breaks</a></li>
+              <li><a href="../pages/cups.html" data-hub="cups">Cups</a></li>
+              <li><a href="../pages/clubs.html" data-hub="clubs club">Clubs</a></li>
+              <li><a href="../pages/league-info.html" data-hub="league-info archive">More</a></li>
+            </ul>
+          </nav>
+
+      </div>
+    </div>
+
+
+    <div class="container" style="padding-top:2rem">
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Content</span>League head (idea 28): the logo, header photo and sponsor are set by the secretary within the design system's rules. The "EPSB registered" badge (idea 47) appears for leagues registered with the national governing body. The administrator's email address is no longer shown on any page (idea 9).</div>
+      <div id="ov-due"></div>
+      <div class="cols-8-4">
+        <div>
+          <!-- This week (R19) -->
+          <section aria-labelledby="tw-h">
+            <div class="section-head"><h2 id="tw-h">This week</h2><span class="wf-meta" id="ov-week-label"></span></div>
+            <div class="panel" style="padding:0" id="ov-week"></div>
+            <p style="margin-top:0.75rem"><a href="../pages/fixtures.html?week=this">All fixtures</a></p>
+          </section>
+          <!-- Latest results (R19, R30) -->
+          <section aria-labelledby="lr-h">
+            <div class="section-head"><h2 id="lr-h">Latest results</h2><span class="wf-meta" id="ov-results-label"></span></div>
+            <div class="score-cards" id="ov-results"></div>
+          </section>
+        </div>
+        <aside aria-label="Table, breaks and league news">
+          <section aria-labelledby="tb-h">
+            <div class="section-head"><h2 id="tb-h">Table</h2><a href="../pages/tables.html">Full tables</a></div>
+            <div id="ov-table"></div>
+          </section>
+          <section aria-labelledby="br-h">
+            <div class="section-head"><h2 id="br-h">Best breaks this season</h2><a href="../pages/breaks.html?league=cambridge">All</a></div>
+            <ul class="stack" style="list-style:none;gap:0.5rem" id="ov-breaks"></ul>
+          </section>
+          <section aria-labelledby="nw-h">
+            <div class="section-head"><h2 id="nw-h">News</h2><a href="../pages/league-info.html">More</a></div>
+            <article class="result-item" style="padding-top:0"><h3 style="font-size:1rem"><a href="../pages/league-info.html#news">Tony Mitchell Cup draw made</a></h3><small>12 October · [Sample news item from the secretary]</small></article>
+          </section>
+          <!-- Sponsor (R08) -->
+          <div class="sponsor-slot"><div class="wf-placeholder">Sponsor logo</div><span>League sponsor · chosen by the league</span></div>
+        </aside>
+      </div>
+      <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Advertising: the current pages carry open Google ads above the results. Would leagues prefer one curated sponsor slot, with an ad-free option they can pay for? It changes the revenue model, so it is your call rather than ours.</div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player profile · UK League Snooker (prototype)</title>
+  <meta name="description" content="A league snooker player's career: frames, form, breaks, handicap history and head to head.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Players · Profile</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>One profile per player that follows them across seasons, teams and leagues: frames won this season and over a career, form by season, highest breaks and centuries, handicap history and head to head against anyone they have played. Players can follow each other and can choose how their name appears.</p></div>
+          <div><h2>Why</h2><p>A player page today covers one season: won, drawn, lost and a list of matches. The site has held these records since 2005, but they can't be seen together. Handicaps are often typed into the name itself ("Matt Wilson -55", "Matt Wilson K"), so the same person appears several times. Separating the handicap from the name and merging those records is the work that makes a career view possible.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 34, 35 and 38. Player names and figures are sample data. Try the head to head with a different opponent.</p>
+      </div>
+    </aside>
+    <div class="page-head">
+      <div class="container profile-head" id="player-host">
+        <div class="wf-placeholder avatar">Photo</div>
+        <div>
+          <h1 style="margin-bottom:0.25rem"><span id="pl-name"></span> <span id="pl-hcp"></span></h1>
+          <p class="wf-meta" id="pl-sub" style="margin:0"></p>
+        </div>
+        <div class="actions row"><button type="button" class="btn btn-secondary" id="pl-follow" data-follow="player" data-follow-id="" data-label="Follow player">Follow player</button></div>
+      </div>
+    </div>
+    <div class="container" style="padding-top:2rem">
+      <div class="kpi" id="pl-kpi"></div>
+      <div class="wf-note" data-note="1"><span class="wf-note-label">Data</span><span id="pl-aliases"></span></div>
+      <div class="cols-8-4" style="margin-top:2rem">
+        <div>
+          <section aria-labelledby="tm-h">
+            <h2 id="tm-h" class="section-title">This season</h2>
+            <div class="table-wrap"><table class="lt"><caption>League and cup matches, 2026/27</caption><thead><tr><th scope="col">Date</th><th scope="col">Opponent</th><th scope="col" class="n">Frames</th><th scope="col">Breaks</th><th scope="col"><span class="sr-only">Match card</span></th></tr></thead><tbody id="pl-matches"></tbody></table></div>
+          </section>
+          <section aria-labelledby="cr-h">
+            <h2 id="cr-h" class="section-title">Career</h2>
+            <div class="table-wrap"><table class="lt"><caption>By season, across all leagues on the site</caption><thead><tr><th scope="col">Season</th><th scope="col">Team and league</th><th scope="col" class="n">Frames</th><th scope="col" class="n">Won</th><th scope="col" class="n">%</th><th scope="col" class="n">High break</th><th scope="col" class="n">Hcp</th></tr></thead><tbody id="pl-career"></tbody></table></div>
+            <div class="wf-note" data-note="2"><span class="wf-note-label">Content</span>A dash means no break was recorded, rather than the "0" shown on the current site. The handicap column comes from the handicap history, which updates automatically for leagues that set that option.</div>
+          </section>
+        </div>
+        <aside>
+          <section aria-labelledby="fm-h">
+            <h2 id="fm-h" style="font-size:1.125rem">Frames won by season</h2>
+            <div class="bars" id="pl-bars"></div>
+          </section>
+          <section aria-labelledby="h2-h">
+            <h2 id="h2-h" style="font-size:1.125rem">Head to head</h2>
+            <div class="field"><label for="h2h-opp">Against</label><select id="h2h-opp"></select></div>
+            <div class="h2h" id="h2h-box"></div>
+            <div class="table-wrap" style="margin-top:0.75rem"><table class="lt"><caption class="sr-only">Meetings</caption><thead><tr><th scope="col">Date</th><th scope="col">Season</th><th scope="col" class="n">Frames</th><th scope="col" class="n">HB</th><th scope="col" class="n">HB</th></tr></thead><tbody id="h2h-list"></tbody></table></div>
+          </section>
+          <div class="wf-note query" data-note="3"><span class="wf-note-label">Question for the client</span>Every league player's full name and record is public at the moment. Would you support letting players choose to show only their initial and surname (see <a href="../pages/account.html">alerts and privacy</a>)? A short statement of what we publish and why would sit alongside it.</div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

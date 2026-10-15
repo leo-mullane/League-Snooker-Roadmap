@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start your league · UK League Snooker (prototype)</title>
+  <meta name="description" content="Set up your snooker or billiards league online in five steps. First season free.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Run a league · Start your league</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A guided setup that asks the same things the current Join page asks, grouped into five short steps and ends with a preview of the league's new site. The secretary chooses their own password on screen.</p></div>
+          <div><h2>Why</h2><p>Today a new league answers 21 numbered questions by email, the last of which is "Administrator Username and Password". Asking anyone to email a password is a habit worth breaking, and a form can explain each option ("does your league record frame scores, e.g. John Smith 45 v 76 Paul Jones?") at the point it matters rather than in a list.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 40, 42 and 44. Every one of the 21 current questions is covered in steps 1 to 3.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><p class="eyebrow">First season free</p><h1>Start your league</h1></div></div>
+    <div class="container" style="padding-top:2rem;max-width:860px">
+      <div id="setup-flow">
+        <ol class="stepper s5"><li>Your league</li><li>How you play</li><li>Your account</li><li>Payment</li><li>Preview</li></ol>
+
+        <section class="step" id="st-1" aria-labelledby="st1-h">
+          <h2 id="st1-h">Your league</h2>
+          <div class="field"><label for="st-name">League name</label><input type="text" id="st-name" required data-error="Enter your league's name." placeholder="For example Ely &amp; District Snooker League"></div>
+          <div class="field"><label for="st-county">County</label><input type="text" id="st-county" required data-error="Enter the county your league is in."></div>
+          <div class="grid grid-2" style="gap:1rem">
+            <div class="field"><label for="st-sport">Game</label><select id="st-sport"><option>Snooker</option><option>Billiards</option></select></div>
+            <div class="field"><label for="st-night">Main match night</label><select id="st-night"><option value="Mon">Monday</option><option value="Tue">Tuesday</option><option value="Wed">Wednesday</option><option value="Thu">Thursday</option><option value="Fri" selected>Friday</option><option value="Sun">Sunday</option></select></div>
+            <div class="field"><label for="st-start">Season starts</label><input type="date" id="st-start" required data-error="Enter the first match date." value="2027-09-24"></div>
+            <div class="field"><label for="st-end">Season ends</label><input type="date" id="st-end" required data-error="Enter the last match date." value="2028-06-30"></div>
+          </div>
+          <div class="step-actions"><span></span><button class="btn" type="button" data-next>Next</button></div>
+        </section>
+
+        <section class="step" id="st-2" aria-labelledby="st2-h" hidden>
+          <h2 id="st2-h">How you play</h2>
+          <div class="grid grid-2" style="gap:1rem">
+            <div class="field"><label for="st-divs">Divisions</label><input type="number" id="st-divs" value="2" min="1" max="8" required data-error="How many divisions?"></div>
+            <div class="field"><label for="st-teams">Teams in total</label><input type="number" id="st-teams" value="16" min="2" required data-error="How many teams?"></div>
+            <div class="field"><label for="st-games">Individual matches in a league match</label><input type="number" id="st-games" value="5" min="1" required data-error="How many matches?"></div>
+            <div class="field"><label for="st-frames">Frames in a league match</label><input type="number" id="st-frames" value="10" min="1" required data-error="How many frames?"></div>
+          </div>
+          <fieldset><legend>Tick everything that applies</legend>
+            <label class="check"><input type="checkbox"> The table includes points</label>
+            <label class="check"><input type="checkbox" checked> League matches can be drawn</label>
+            <label class="check"><input type="checkbox" checked> Individual matches can be drawn, e.g. 1–1</label>
+            <label class="check"><input type="checkbox" checked> We record frame scores, e.g. 45 v 76</label>
+            <label class="check"><input type="checkbox" checked> Players have handicaps</label>
+            <label class="check"><input type="checkbox"> Update handicaps automatically after each game</label>
+            <label class="check"><input type="checkbox"> We have a Premier division</label>
+            <label class="check"><input type="checkbox"> The table includes penalties</label>
+            <label class="check"><input type="checkbox"> Cup matches are played at neutral clubs</label>
+            <label class="check"><input type="checkbox"> League matches include doubles</label>
+            <label class="check"><input type="checkbox"> It's a singles league (no teams)</label>
+            <label class="check"><input type="checkbox" checked> We record highest breaks in league and cup matches</label>
+          </fieldset>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Options appear only when they make sense (the handicap update amount once "Players have handicaps" is ticked, for example). Each has a one-line explanation on hover or tap in the build.</div>
+          <div class="step-actions"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Next</button></div>
+        </section>
+
+        <section class="step" id="st-3" aria-labelledby="st3-h" hidden>
+          <h2 id="st3-h">Your secretary account</h2>
+          <div class="field"><label for="st-you">Your name</label><input type="text" id="st-you" required data-error="Enter your name."></div>
+          <div class="field"><label for="st-email">Email</label><input type="email" id="st-email" required data-error="Enter an email address, like name@example.com."><p class="field-hint">For signing in and for league messages. It is never shown on the site.</p></div>
+          <div class="field"><label for="st-phone">Phone (optional)</label><input type="tel" id="st-phone"></div>
+          <div class="field"><label for="st-pw">Choose a password</label><input type="password" id="st-pw" required data-min="12" data-error="Use at least 12 characters." autocomplete="new-password"><p class="field-hint" id="st-pw-hint">At least 12 characters. A short phrase works well.</p></div>
+          <div class="field"><label for="st-pw2">Type it again</label><input type="password" id="st-pw2" required data-error="Type your password again." autocomplete="new-password"><p class="field-error" id="st-pw2-error" hidden>The two passwords don't match.</p></div>
+          <p class="wf-meta">We will never ask for your password by email. You can add a results helper with their own sign-in later.</p>
+          <div class="step-actions"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Next</button></div>
+        </section>
+
+        <section class="step" id="st-4" aria-labelledby="st4-h" hidden>
+          <h2 id="st4-h">Payment</h2>
+          <p><b>Nothing to pay now.</b> Your first season is free. We'll remind you a month before the second season and you can stop at any point.</p>
+          <fieldset><legend>When the time comes, you'd like to pay by</legend>
+            <label class="check"><input type="radio" name="st-pay" value="Card" required data-error="Choose how you would like to pay."> Card</label>
+            <label class="check"><input type="radio" name="st-pay" value="Direct Debit"> Direct Debit</label>
+            <label class="check"><input type="radio" name="st-pay" value="Invoice to the league treasurer"> Invoice to the league treasurer</label>
+          </fieldset>
+          <div class="field"><label class="check"><input type="checkbox" id="st-terms" required data-error="Tick to agree to the terms."> I agree to the <a href="#">terms</a> and the <a href="#">privacy notice</a></label></div>
+          <div class="step-actions"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" data-next>Preview my league</button></div>
+        </section>
+
+        <section class="step" id="st-5" aria-labelledby="st5-h" hidden>
+          <h2 id="st5-h">Your league site</h2>
+          <div class="league-head" style="border:1px solid var(--wf-border);border-radius:var(--wf-radius);padding:1rem">
+            <div class="league-head-row"><div class="wf-placeholder league-logo">Your logo</div><div><p class="crumb" id="pv-meta"></p><p class="league-name" id="pv-name"></p></div></div>
+            <div class="seg" id="pv-divs" style="margin-top:1rem"></div>
+          </div>
+          <div class="grid grid-2" style="margin-top:1rem">
+            <div class="panel"><h3>Your rules</h3><ul style="padding-left:1.25rem" id="pv-rules"></ul></div>
+            <div class="panel"><dl class="kv"><dt>Secretary sign-in</dt><dd id="pv-email"></dd><dt>Payment, from season two</dt><dd id="pv-pay"></dd><dt>First season</dt><dd>Free</dd></dl></div>
+          </div>
+          <div class="step-actions"><button class="btn btn-secondary" type="button" data-back>Back</button><button class="btn" type="button" id="st-go">Create my league</button></div>
+        </section>
+      </div>
+      <div id="setup-done" class="summary-box" hidden role="status">
+        <h2 tabindex="-1">Your league is set up</h2>
+        <p>We have emailed a link to confirm your address. Next, add your clubs and teams; the fixture list can be generated for you once teams are in.</p>
+        <a class="btn" href="../pages/admin.html">Go to your admin area</a>
+      </div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

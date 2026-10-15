@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK League Snooker: every snooker and billiards league in one place (prototype)</title>
+  <meta name="description" content="Find your snooker or billiards league's tables, fixtures, results and breaks, or run your league online. 87 UK leagues.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <!-- What we're proposing and why (shown when Notes are on) -->
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Community home</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A homepage that starts with one search box. Type a league, a club, a team, a player or the first half of a postcode and the results appear as you type, grouped by kind. Underneath it the page splits into two routes, one for players and one for league secretaries, followed by what has happened across the community this week, the championship and the most recent centuries.</p></div>
+          <div><h2>Why</h2><p>Today the homepage is an alphabetical list of 87 leagues beside a map of the UK, and search is three separate searches (people by last name only). If you already know which league you play in that works well enough. If you don't, or you are a secretary wondering whether to move your league over, there is very little to go on. The proposition is currently a numbered list of five purposes and one testimonial of more than 400 words.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 7, 8, 11, 14, 15, 16, 17 and 18. The league finder (ideas 12 and 13) and the championship page are linked from here.</p>
+      </div>
+    </aside>
+
+    <!-- Search-first hero (R11) -->
+    <section class="search-hero">
+      <div class="container">
+        <h1>Every UK snooker and billiards league in one place</h1>
+        <p class="lead">Tables, fixtures, results and breaks for 87 leagues, kept up to date by the people who run them.</p>
+        <div class="omni" role="search">
+          <form id="omni-form" class="omni-row" autocomplete="off">
+            <label class="sr-only" for="omni-q">Search for a league, club, team, player or postcode</label>
+            <input type="search" id="omni-q" placeholder="League, club, team, player or postcode" role="combobox" aria-expanded="false" aria-controls="omni-results" aria-autocomplete="list">
+            <button class="btn" type="submit">Search</button>
+          </form>
+          <div class="omni-results" id="omni-results" role="listbox" hidden></div>
+        </div>
+        <p class="omni-try">Try: <button type="button" class="btn-link" data-omni-try="Cambridge">Cambridge</button> · <button type="button" class="btn-link" data-omni-try="Whittlesford">Whittlesford</button> · <button type="button" class="btn-link" data-omni-try="Fenwick">Fenwick</button> · <button type="button" class="btn-link" data-omni-try="CB22">CB22</button> · <a href="~/pages/leagues.html">Browse all leagues on a map</a></p>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Results appear after two characters, grouped as Leagues, Clubs, Teams and Players. Arrow keys move through them, Enter opens one and Escape closes the list. Anything that looks like a postcode adds a "near" link to the map.</div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top:2.5rem">
+      <!-- Two routes (R17) -->
+      <section aria-labelledby="routes-h">
+        <h2 id="routes-h" class="sr-only">Choose your route</h2>
+        <div class="route-cards">
+          <article class="panel stack">
+            <p class="eyebrow">For players</p>
+            <h3>Find your league</h3>
+            <p>Check the table on your phone, see who you are playing on Friday and look back at every break you have made since you started.</p>
+            <div class="row"><a class="btn" href="~/pages/leagues.html">Find a league near you</a><a href="~/pages/league.html">Example: Cambridge &amp; District</a></div>
+          </article>
+          <article class="panel stack">
+            <p class="eyebrow">For league secretaries</p>
+            <h3>Run your league here</h3>
+            <p>Your first season is free. After that it costs £1.50 per player per season. A secretary running four divisions puts a week of results in in about an hour.</p>
+            <div class="row"><a class="btn btn-secondary" href="~/pages/run-a-league.html">How it works and pricing</a><a href="~/pages/setup.html">Start your league</a></div>
+          </article>
+        </div>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Content</span>These two routes replace the "five purposes" list. The figures come from the current Join page.</div>
+      </section>
+
+      <!-- This week across the community (R14) -->
+      <section aria-labelledby="week-h">
+        <div class="section-head"><h2 id="week-h">This week across the community</h2><span class="wf-meta">Updated as results are entered</span></div>
+        <div class="stat-strip" id="week-stats"></div>
+        <div class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Calculated from the results secretaries enter, so it needs no editing. In this prototype only Cambridge &amp; District has results, so the frames figure covers that league alone.</div>
+      </section>
+
+      <div class="cols-8-4">
+        <div>
+          <!-- Championship (R15) -->
+          <section aria-labelledby="champ-h">
+            <div class="panel content-highlight">
+              <div class="wf-placeholder ratio-4-3" data-photo="landywood">Photo · Landywood Snooker Club</div>
+              <div class="stack">
+                <p class="eyebrow">24 to 25 October 2026 · Walsall</p>
+                <h2 id="champ-h">UK League Snooker Championship 2026</h2>
+                <p>Teams from leagues across the country at Landywood Snooker Club. The draw, the results and past winners are on the championship page.</p>
+                <p><a class="btn btn-secondary" href="~/pages/championship.html">Championship details</a></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Short testimonials (R16) -->
+          <section aria-labelledby="quotes-h">
+            <h2 id="quotes-h" class="section-title">What secretaries say</h2>
+            <div class="grid grid-2">
+              <blockquote class="wf-quote"><p>"[Short quote from a league secretary, two sentences at most, about the time saved each week.]"</p><cite>[Name], [League]</cite></blockquote>
+              <blockquote class="wf-quote"><p>"[Short quote from a player about checking results and breaks.]"</p><cite>[Name], [League]</cite></blockquote>
+            </div>
+            <div class="wf-note query" data-note="4"><span class="wf-note-label">Question for the client</span>Can we ask two or three secretaries for short quotes, with permission to use their names? The long testimonial from Newcastle, NSW could move to a stories page with its author's agreement.</div>
+          </section>
+        </div>
+
+        <aside aria-label="Latest centuries and community">
+          <!-- Latest centuries (R14, R37) -->
+          <section aria-labelledby="cent-h">
+            <div class="section-head"><h2 id="cent-h">Latest centuries</h2><a href="~/pages/breaks.html">Hall of fame</a></div>
+            <ul class="stack" id="latest-centuries" style="list-style:none;gap:0"></ul>
+          </section>
+          <!-- Community: Facebook group, forum archive (R18) -->
+          <section aria-labelledby="comm-h" class="panel surface">
+            <h2 id="comm-h" style="font-size:1.125rem">Talk to other players</h2>
+            <p>Most of the conversation now happens in the UK League Snooker Community group on Facebook.</p>
+            <p class="row"><a class="btn btn-secondary btn-sm" href="#">Join the Facebook group</a><a href="~/pages/community.html">Forum archive</a></p>
+          </section>
+          <!-- Sponsor slot (R08) -->
+          <div class="sponsor-slot"><div class="wf-placeholder">Sponsor logo</div><span>Community sponsor · one curated slot</span></div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Single consent prompt (R07) -->
+    <div class="consent" id="consent" role="dialog" aria-label="Cookies" hidden>
+      <h2 style="font-size:1.125rem">Cookies on this site</h2>
+      <p>We use essential cookies to make the site work. With your permission we would also like to count visits so we know which pages help. We don't use advertising cookies.</p>
+      <div id="consent-choices" hidden><label class="check"><input type="checkbox" checked disabled> Essential (always on)</label><label class="check"><input type="checkbox" id="c-analytics"> Visit counting</label></div>
+      <div class="row" style="margin-top:0.75rem"><button type="button" class="btn" data-consent="all">Accept visit counting</button><button type="button" class="btn btn-secondary" data-consent="essential">Essential only</button><button type="button" class="btn-link" data-consent="choose">Choose</button></div>
+    </div>
+    <div class="container"><div class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>One cookie prompt, shown once per visit in this prototype, with "Essential only" as easy to press as "Accept". It replaces the two prompts on the current site (a cookie banner, then an advertising consent screen listing 210 partners). Without open advertising the second prompt is not needed.</div></div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

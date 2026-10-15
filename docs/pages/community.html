@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community and forum archive · UK League Snooker (prototype)</title>
+  <meta name="description" content="Join the UK League Snooker Community on Facebook, and read the forum archive.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Community home · Forum archive</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Keep the community forum online as a read-only archive, searchable and with its old addresses still working, and point people to the Facebook group and to their own league's news for anything current.</p></div>
+          <div><h2>Why</h2><p>The newest post on the community forum is from March 2022. The conversation has moved to Facebook, which is fine, but a forum with a "New Topic" button and no replies for four years suggests the whole site has been left alone. The old threads (exhibitions, coaching, handicap systems) are still worth finding.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 18. Thread titles below are from the live forum; counts are approximate.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><h1>Community</h1><p class="lead">Talk to players from other leagues in the Facebook group, or browse the old forum.</p></div></div>
+    <div class="container" style="padding-top:2rem">
+      <div class="cols-8-4">
+        <section aria-labelledby="arch-h">
+          <div class="section-head"><h2 id="arch-h">Forum archive</h2><span class="badge">Read only</span></div>
+          <div class="field"><label for="arch-q">Search the archive</label><input type="search" id="arch-q" placeholder="For example: handicap"></div>
+          <ul class="stack" style="list-style:none;gap:0" id="arch-list">
+            <li class="result-item"><h3><a href="#">Club Clear Out - Tables &amp; Equipment For Sale</a></h3><small>Cambridge &amp; District Billiards League · March 2022 · 2 posts</small></li>
+            <li class="result-item"><h3><a href="#">UK League Snooker Championship 2018</a></h3><small>Ormskirk &amp; District Amateur Snooker League · November 2018 · 1 post</small></li>
+            <li class="result-item"><h3><a href="#">Handicap System</a></h3><small>Plymouth Billiards League · December 2016 · 5 posts</small></li>
+            <li class="result-item"><h3><a href="#">Billiards Coaching</a></h3><small>Cambridge &amp; District Billiards League · November 2017 · 1 post</small></li>
+            <li class="result-item"><h3><a href="#">147 BREAKS</a></h3><small>Liverpool Snooker League · August 2015 · 2 posts</small></li>
+          </ul>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Each league's own forum is archived the same way, inside that league's "More" tab. Posting is switched off; old thread addresses redirect here.</div>
+        </section>
+        <aside class="panel surface stack">
+          <h2 style="font-size:1.25rem">UK League Snooker Community on Facebook</h2>
+          <p>Where players and secretaries from different leagues swap news, sell equipment and organise exhibitions.</p>
+          <a class="btn" href="#">Join the group</a>
+          <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Would you like a few recent group posts shown here, or just the link?</div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

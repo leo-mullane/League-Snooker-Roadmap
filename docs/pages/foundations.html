@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundations of the rebuild · UK League Snooker (prototype)</title>
+  <meta name="description" content="The groundwork under every page: one responsive site, readable type, headings and titles, accessibility, addresses and redirects, consent and data clean-up.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this page">
+      <div class="container">
+        <p class="proposal-eyebrow">Foundations · applies to every page</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>The groundwork that sits under all five prototypes and that nobody sees when it is done properly: one site that works on any screen, readable type, proper headings and page titles, accessibility to WCAG 2.2 AA, new addresses with redirects from every old one, a single consent prompt and a clean-up of the data as it moves across.</p></div>
+          <div><h2>Why</h2><p>The current site is built as it would have been in the mid-2000s: an HTML 4.01 page, no viewport setting, a 970-pixel layout in tables, 12-pixel Verdana and a separate copy of the site for phones. None of it is broken exactly, but it is why the site is hard to use on a phone and close to invisible to search engines. Rebuilding is cheaper than retrofitting all of it.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 1 to 7, 10 and 35. The design system (idea 2) is applied across the whole pack from a single stylesheet.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><h1>Foundations</h1><p class="lead">What every page of the new site is built on.</p></div></div>
+    <div class="container" style="padding-top:2rem">
+      <nav class="inpage-nav" aria-label="On this page" style="position:static"><ul><li><a href="#f-responsive">One site</a></li><li><a href="#f-type">Type</a></li><li><a href="#f-titles">Titles and headings</a></li><li><a href="#f-a11y">Accessibility</a></li><li><a href="#f-urls">Addresses</a></li><li><a href="#f-consent">Consent and ads</a></li><li><a href="#f-data">Data clean-up</a></li><li><a href="../modules/library.html">Module library</a></li></ul></nav>
+
+      <section id="f-responsive" aria-labelledby="fr-h">
+        <h2 id="fr-h" class="section-title">One site for every screen <small class="wf-req">(ideas 1, 2)</small></h2>
+        <div class="grid grid-2">
+          <div><p>One responsive site from 320 pixels up, with the same address on a phone and a laptop. The /mobile/ copy and its redirects are retired. Every prototype in this pack works at phone width; try any of them on your phone.</p><p>The League Snooker design system (colour, type and components) is applied from a single stylesheet, so a change to the brand is made once rather than page by page. Where we don't yet have photography, the images are snooker tables drawn to scale.</p></div>
+          <div class="grid grid-2" style="gap:1rem"><div class="wf-placeholder" style="aspect-ratio:9/16;max-height:320px">Phone · 390px</div><div class="wf-placeholder ratio-4-3">Laptop · 1440px</div></div>
+        </div>
+      </section>
+
+      <section id="f-type" aria-labelledby="ft-h">
+        <h2 id="ft-h" class="section-title">Readable type <small class="wf-req">(idea 3)</small></h2>
+        <div class="grid grid-2">
+          <div class="panel"><p class="eyebrow">Now</p><p style="font-family:Verdana,sans-serif;font-size:12px">Played 3 | Won 3 | Drawn 0 | Lost 0 | For 23 | Against 7</p><p class="wf-meta">Verdana 12px, used for everything including results tables.</p></div>
+          <div class="panel"><p class="eyebrow">Proposed</p><p class="num" style="font-size:17px">Played 3 · Won 3 · Drawn 0 · Lost 0 · For 23 · Against 7</p><p class="wf-meta">17px body text, 15px in dense tables, figures that line up in columns and 48px targets for anything you tap.</p></div>
+        </div>
+      </section>
+
+      <section id="f-titles" aria-labelledby="fti-h">
+        <h2 id="fti-h" class="section-title">Page titles and headings <small class="wf-req">(idea 4)</small></h2>
+        <p>Every page has one H1 and a title that says what and whose it is. These are what appear in search results and browser tabs.</p>
+        <div class="table-wrap"><table class="lt"><caption>Title pattern</caption><thead><tr><th scope="col">Page</th><th scope="col">Title now</th><th scope="col">Title proposed</th></tr></thead><tbody>
+          <tr><td>League table</td><td>Cambridge &amp; District Snooker League</td><td>Division 1 table · Cambridge &amp; District Snooker League</td></tr>
+          <tr><td>Player rankings</td><td>Snooker Players</td><td>Player rankings · Cambridge &amp; District Snooker League</td></tr>
+          <tr><td>Player page</td><td>Tom Parry</td><td>[Player name] · Cambridge &amp; District Snooker League</td></tr>
+          <tr><td>Join</td><td>Snooker UK</td><td>Run your snooker or billiards league online · UK League Snooker</td></tr>
+        </tbody></table></div>
+        <div class="wf-note" data-note="1"><span class="wf-note-label">Content</span>Every page also gets its own description, rather than the one shared by every page today ("The Snooker League Website for any Snooker UK League, online snooker, snooker pictures, snooker forum"). League pages carry structured data for events and sports teams.</div>
+      </section>
+
+      <section id="f-a11y" aria-labelledby="fa-h">
+        <h2 id="fa-h" class="section-title">Accessibility <small class="wf-req">(idea 5)</small></h2>
+        <ul style="padding-left:1.25rem;display:grid;gap:0.375rem;max-width:72ch">
+          <li>WCAG 2.2 AA as the minimum, tested with a screen reader and keyboard before launch.</li>
+          <li>Tables with captions and scoped headers; form and results given in words as well as symbols.</li>
+          <li>Alt text for every image (none of the five images on the rankings page has any today).</li>
+          <li>Visible focus, no hover-only controls and everything usable with a keyboard. Escape closes every overlay.</li>
+          <li>Colour is never the only signal: a win, a draw and a loss differ in shape as well as colour.</li>
+        </ul>
+      </section>
+
+      <section id="f-urls" aria-labelledby="fu-h">
+        <h2 id="fu-h" class="section-title">Addresses and redirects <small class="wf-req">(idea 6)</small></h2>
+        <p>New addresses read like the site: <span class="code" style="display:inline-block;padding:0.15rem 0.4rem">/leagues/cambridge-district-snooker/division-1/table</span>. Every old address gets a permanent redirect, so bookmarks, links in club newsletters and search rankings carry over.</p>
+        <form id="redirect-form" class="omni-row" style="max-width:720px;margin-top:1rem">
+          <label class="sr-only" for="old-url">Old address</label>
+          <input type="text" id="old-url" placeholder="Paste an old leaguesnooker.co.uk address">
+          <button type="submit" class="btn">Check</button>
+        </form>
+        <p class="omni-try">Try: <button type="button" class="btn-link" data-try-url="https://www.leaguesnooker.co.uk/league/online-snooker.asp?leagueid=50&amp;SeasonID=1633&amp;DivisionID=3766">league table</button> · <button type="button" class="btn-link" data-try-url="https://www.leaguesnooker.co.uk/snooker-software.asp">"Privacy"</button> · <button type="button" class="btn-link" data-try-url="https://www.leaguesnooker.co.uk/snooker-uk.asp">Join</button> · <button type="button" class="btn-link" data-try-url="https://www.leaguesnooker.co.uk/mobile/online-snooker.asp?leagueid=50">mobile page</button></p>
+        <p id="redirect-out" aria-live="polite"></p>
+        <div class="wf-note" data-note="2"><span class="wf-note-label">Content</span>Some current menu labels point at pages with unrelated addresses ("Privacy" opens snooker-software.asp, "Links" opens snooker-results.asp). The new addresses match what the page is.</div>
+      </section>
+
+      <section id="f-consent" aria-labelledby="fc-h">
+        <h2 id="fc-h" class="section-title">Consent and advertising <small class="wf-req">(ideas 7, 8)</small></h2>
+        <p>One consent prompt, with "Essential only" as easy to choose as "Accept" (see it on the <a href="../pages/home.html">community home</a>). Open programmatic advertising is replaced by one curated sponsor slot per page, which is what makes the second consent screen unnecessary.</p>
+      </section>
+
+      <section id="f-data" aria-labelledby="fd-h">
+        <h2 id="fd-h" class="section-title">Data clean-up during migration <small class="wf-req">(ideas 10, 35)</small></h2>
+        <div class="table-wrap"><table class="lt"><caption>Checks run on every record as it moves across</caption><thead><tr><th scope="col">Check</th><th scope="col">Example on the live site</th><th scope="col">What happens</th></tr></thead><tbody>
+          <tr><td>Handicaps in names</td><td>"Lee Mallen [-18]", "Matt Wilson -55", "Matt Wilson K"</td><td class="team-cell">Handicap moved to its own field with a history; duplicate players offered for merging</td></tr>
+          <tr><td>Impossible dates</td><td>A season from 1 September 2023 to 30 April 2023</td><td class="team-cell">Flagged to the league secretary to correct</td></tr>
+          <tr><td>Character encoding</td><td>Replacement characters (&#xFFFD;) in headings on the Research page</td><td class="team-cell">Converted to UTF-8; anything unconvertible is listed for checking</td></tr>
+          <tr><td>Zero breaks</td><td>Highest break shown as 0</td><td class="team-cell">Stored as "no break"; shown as a dash</td></tr>
+        </tbody></table></div>
+        <div class="wf-note query" data-note="3"><span class="wf-note-label">Question for the client</span>Is the plan to keep the current database and rebuild the front end, or to move to a new platform? The redirects and clean-up are needed either way; the admin area is the part that differs most.</div>
+      </section>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

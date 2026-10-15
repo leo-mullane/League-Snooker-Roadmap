@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secretary sign in · UK League Snooker (prototype)</title>
+  <meta name="description" content="Sign in to manage your league.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 5 of 5 · Run a league · Sign in</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A sign-in page with a working "Forgotten your password?" route, so a secretary can get back in without emailing anyone.</p></div>
+          <div><h2>Why</h2><p>The current admin log-in is a username and password box with nothing else. If a secretary forgets their details, or hands the league over, the only route is to ask.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 44. Any email and password will do here.</p>
+      </div>
+    </aside>
+    <div class="container" style="padding-top:3rem;max-width:480px">
+      <h1>Secretary sign in</h1>
+      <form id="signin-form" novalidate>
+        <div class="field"><label for="si-email">Email</label><input type="email" id="si-email" required autocomplete="username" data-error="Enter your email address."></div>
+        <div class="field"><label for="si-pw">Password</label><input type="password" id="si-pw" required autocomplete="current-password" data-error="Enter your password."></div>
+        <div class="row between"><button class="btn" type="submit">Sign in</button><a href="#" id="forgot-link">Forgotten your password?</a></div>
+      </form>
+      <form id="reset-form" novalidate hidden>
+        <p>Enter the email you sign in with and we'll send a link to choose a new password. The link works for one hour.</p>
+        <div class="field"><label for="reset-email">Email</label><input type="email" id="reset-email" required data-error="Enter your email address."></div>
+        <div class="row between"><button class="btn" type="submit">Send reset link</button><button type="button" class="btn-link" id="reset-back">Back to sign in</button></div>
+      </form>
+      <div id="reset-done" class="summary-box" hidden role="status"><p><b>Check your email.</b> If that address has an account, a link is on its way. Nothing arrived? Your league's other admins can also reset it for you.</p></div>
+      <p class="wf-meta" style="margin-top:2rem">New league? <a href="~/pages/setup.html">Start your league</a></p>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

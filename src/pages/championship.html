@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK League Snooker Championship 2026 · Landywood Snooker Club, Walsall (prototype)</title>
+  <meta name="description" content="Teams from UK snooker leagues meet at Landywood Snooker Club, Walsall, on 24 and 25 October 2026.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Community home · Championship</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A proper home for the UK League Snooker Championship: dates and venue, how a team qualifies and enters, the groups and draw on the weekend, results as they come in and every past winner.</p></div>
+          <div><h2>Why</h2><p>The championship is the one event that brings the leagues on the site together, and at the moment it is a single line on the homepage linking to a page laid out like any other league table. It deserves to be the thing a secretary forwards to their players.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 15. Groups, entrants and past winners below are placeholders.</p>
+      </div>
+    </aside>
+
+    <div class="page-head">
+      <div class="container cols-8-4">
+        <div>
+          <p class="eyebrow">Saturday 24 to Sunday 25 October 2026</p>
+          <h1>UK League Snooker Championship 2026</h1>
+          <p class="lead">Landywood Snooker Club, Walsall. Teams from leagues across the country. [Format: team size, group stage and knockout to confirm.]</p>
+          <div class="row"><a class="btn" href="#enter">How to enter</a><a class="btn btn-secondary" href="#draw">Groups and draw</a></div>
+        </div>
+        <div class="wf-placeholder ratio-4-3" data-photo="landywood">Photo · the venue</div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:2rem">
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" role="tab" data-tab="ch-draw" aria-selected="true">Groups and draw</button>
+        <button class="tab" type="button" role="tab" data-tab="ch-enter" aria-selected="false">How to enter</button>
+        <button class="tab" type="button" role="tab" data-tab="ch-venue" aria-selected="false">Venue</button>
+        <button class="tab" type="button" role="tab" data-tab="ch-past" aria-selected="false">Past winners</button>
+      </div>
+      <div>
+        <div class="tab-panel active" id="ch-draw" role="tabpanel">
+          <span id="draw"></span>
+          <div class="grid grid-4">
+            <div class="panel"><h3>Group A</h3><ol style="padding-left:1.25rem"><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li></ol></div>
+            <div class="panel"><h3>Group B</h3><ol style="padding-left:1.25rem"><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li></ol></div>
+            <div class="panel"><h3>Group C</h3><ol style="padding-left:1.25rem"><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li></ol></div>
+            <div class="panel"><h3>Group D</h3><ol style="padding-left:1.25rem"><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li><li>[Team, league]</li></ol></div>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>On the weekend this tab shows live group tables and results, using the same scoreboard cards as the league pages. Frames can be scored live from the venue (see the live scoring page in prototype 3).</div>
+        </div>
+        <div class="tab-panel" id="ch-enter" role="tabpanel">
+          <span id="enter"></span>
+          <ol style="padding-left:1.25rem;display:grid;gap:0.5rem;max-width:65ch">
+            <li>Any league on the site can enter [number] teams of [number] players.</li>
+            <li>The league secretary enters the team from their admin area by [entry deadline].</li>
+            <li>The entry fee is [amount] per team, paid online when you enter.</li>
+            <li>We publish the groups the week before.</li>
+          </ol>
+          <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>What are the entry rules, deadline and fee? Is there any link with the EPSB's English League Snooker Championship, which is also held at Landywood?</div>
+        </div>
+        <div class="tab-panel" id="ch-venue" role="tabpanel">
+          <div class="content-highlight"><div class="wf-placeholder ratio-4-3">Map · Landywood Snooker Club</div><div><h3>Landywood Snooker Club</h3><p>Walsall. [Address, parking, tables, food and opening times.]</p><a class="btn btn-secondary" href="#">Directions</a></div></div>
+        </div>
+        <div class="tab-panel" id="ch-past" role="tabpanel">
+          <table class="lt"><caption>Past winners</caption><thead><tr><th scope="col">Year</th><th scope="col">Winners</th><th scope="col">Runners-up</th><th scope="col" class="n">High break</th></tr></thead><tbody>
+            <tr><td>2025</td><td>[Team, league]</td><td>[Team, league]</td><td class="n">[ ]</td></tr>
+            <tr><td>2024</td><td>[Team, league]</td><td>[Team, league]</td><td class="n">[ ]</td></tr>
+            <tr><td>2023</td><td>[Team, league]</td><td>[Team, league]</td><td class="n">[ ]</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

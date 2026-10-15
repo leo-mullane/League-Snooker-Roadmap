@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player rankings · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Player rankings by division, with a qualifying number of frames.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Players · Rankings</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Rankings with a qualifying number of frames, set by the league and a choice of order: plus/minus, win percentage or highest break. A dash replaces the zero where a player has no break.</p></div>
+          <div><h2>Why</h2><p>On the current rankings a player with two games at 100% sits above a player with three at 66.67%, and dozens of players show a highest break of 0. Neither is wrong as such, but both make the table harder to believe early in a season.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 36. Sample players.</p>
+      </div>
+    </aside>
+    <!-- @@include league-head.html -->
+    <div class="container" style="padding-top:2rem">
+      <h1>Player rankings</h1>
+      <div class="toolbar">
+        <div id="rank-div"></div>
+        <div class="field"><label for="rank-min">Qualify after</label><select id="rank-min"><option value="0">Any number of frames</option><option value="4" selected>4 frames</option><option value="6">6 frames</option></select></div>
+        <div class="field"><label for="rank-sort">Order by</label><select id="rank-sort"><option value="diff">Plus/minus</option><option value="pct">Win %</option><option value="hb">Highest break</option></select></div>
+        <a href="~/pages/breaks.html?league=cambridge">Breaks</a>
+      </div>
+      <div id="rank-host"></div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

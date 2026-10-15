@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your alerts and privacy · UK League Snooker (prototype)</title>
+  <meta name="description" content="Choose the teams and players you follow, how you hear about results and how your name appears.">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Prototype navigator (replaces the live site's header, R49) -->
+  <header class="sticky site-header proto-nav">
+    <div class="container proto-nav-row">
+      <a class="proto-home" href="../index.html" aria-label="League Snooker prototypes, overview">League Snooker <span>prototypes</span></a>
+      <nav aria-label="Prototypes">
+        <ul class="proto-links">
+          <li><a href="../index.html" data-proto="index">Overview</a></li>
+          <li><a href="../pages/home.html" data-proto="home leagues championship community"><span class="n">1</span> Community home</a></li>
+          <li><a href="../pages/league.html" data-proto="league tables fixtures cups clubs club archive league-info"><span class="n">2</span> League hub</a></li>
+          <li><a href="../pages/match.html" data-proto="match submit-result live"><span class="n">3</span> Match centre</a></li>
+          <li><a href="../pages/player.html" data-proto="player players breaks account"><span class="n">4</span> Players</a></li>
+          <li><a href="../pages/run-a-league.html" data-proto="run-a-league setup sign-in admin"><span class="n">5</span> Run a league</a></li>
+          <li><a href="../pages/foundations.html" data-proto="foundations library"><span class="n">+</span> Foundations</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="notes-toggle" role="switch" aria-checked="false" data-notes-toggle>
+        <span class="notes-track" aria-hidden="true"><span class="notes-thumb"></span></span>
+        <span class="notes-label">Notes off</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 4 of 5 · Players · Alerts and privacy</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A light account for players: follow teams and players, choose how and when to hear about results and fixtures, claim your own player record and decide whether your full name or just your initial appears on public pages.</p></div>
+          <div><h2>Why</h2><p>The current Subscribe option sends the same league-wide email to everyone whenever the secretary presses the button. Most players care about one team and perhaps a couple of rivals. Following is also what lets every page put "your" team first, which you can see on the league hub once you have followed one.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 33, 38 and 39.</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><h1>Your alerts and privacy</h1><p class="lead">Signed in as a sample player. Nothing here is sent anywhere.</p></div></div>
+    <div class="container" style="padding-top:2rem" id="acct">
+      <div class="grid grid-2">
+        <section class="panel" aria-labelledby="fo-h">
+          <h2 id="fo-h" style="font-size:1.25rem">You follow</h2>
+          <ul style="list-style:none;display:grid;gap:0.5rem" id="acct-follows"></ul>
+        </section>
+        <form class="panel" id="alerts-form" aria-labelledby="al-h">
+          <h2 id="al-h" style="font-size:1.25rem">Tell me when</h2>
+          <fieldset><legend>Results</legend>
+            <label class="check"><input type="checkbox" checked> My teams' results are in</label>
+            <label class="check"><input type="checkbox" checked> A player I follow makes a century</label>
+            <label class="check"><input type="checkbox"> The weekly round-up for the whole league</label>
+          </fieldset>
+          <fieldset><legend>Fixtures</legend>
+            <label class="check"><input type="checkbox" checked> Reminder the day before my team plays</label>
+            <label class="check"><input type="checkbox" checked> A fixture is moved</label>
+          </fieldset>
+          <fieldset><legend>How</legend>
+            <label class="check"><input type="radio" name="how" checked> Email</label>
+            <label class="check"><input type="radio" name="how"> Phone notification</label>
+            <label class="check"><input type="radio" name="how"> Both</label>
+          </fieldset>
+          <button class="btn" type="submit">Save alerts</button>
+        </form>
+        <section class="panel" aria-labelledby="pv-h">
+          <h2 id="pv-h" style="font-size:1.25rem">How your name appears</h2>
+          <fieldset><legend class="sr-only">Name display</legend>
+            <label class="check"><input type="radio" name="privacy" value="full"> Full name, for example Lewis Fenwick</label>
+            <label class="check"><input type="radio" name="privacy" value="initials"> Initial and surname, for example L. Fenwick</label>
+          </fieldset>
+          <p class="wf-meta">Your results still count; only the name shown changes. Try it, then open a match card or the rankings.</p>
+          <a href="#">What we publish about players, and why</a>
+        </section>
+        <section class="panel" aria-labelledby="cl-h">
+          <h2 id="cl-h" style="font-size:1.25rem">Claim your player record</h2>
+          <form id="claim-form" novalidate>
+            <div class="field"><label for="claim-player">Your name in the league</label><select id="claim-player" required data-error="Choose your name from the list."></select></div>
+            <div class="field"><label for="claim-email">Your email</label><input type="email" id="claim-email" required data-error="Enter an email address, like name@example.com."></div>
+            <button class="btn btn-secondary" type="submit">Ask the secretary to confirm</button>
+          </form>
+          <div id="claim-done" hidden role="status"><p><b>Request sent.</b> Your league secretary confirms it's you, then any duplicate records under other spellings are merged.</p></div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <!-- Prototype pager (replaces the live site's footer, R49) -->
+  <footer class="proto-footer">
+    <div class="container">
+      <nav class="proto-pager" aria-label="Previous and next prototype" data-proto-pager></nav>
+      <p class="wf-meta">Prototypes for discussion · League, team and club names are real; player names, most results and all other figures are sample data · Photography © UK League Snooker</p>
+    </div>
+  </footer>
+  <script src="../js/data.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/league.js"></script>
+  <script src="../js/photos.js"></script>
+
+</body>
+</html>

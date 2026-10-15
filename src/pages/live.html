@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live scoring · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Score frames live from the table on finals nights and at the championship.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 3 of 5 · Match centre · Live scoring</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>Optional live scoring: someone at the table taps the balls as they go down and anyone following sees the frame score, the break in progress and the match score update. It would start with cup finals and the championship rather than every league night.</p></div>
+          <div><h2>Why</h2><p>Live scoring is now normal in the amateur game, including in the governing body's own tournament tools. It is not something every league will want on a Friday night in a working men's club, which is why we suggest it as an option for the occasions where people who can't be there want to follow.</p></div>
+        </div>
+        <p class="proposal-foot">Covers idea 32. Try the ball buttons, then "Miss" and "End frame".</p>
+      </div>
+    </aside>
+    <div class="page-head"><div class="container"><p class="eyebrow"><span class="dot-live" aria-hidden="true"></span>Live · Tony Mitchell Cup final · sample</p><h1>Live scoring</h1></div></div>
+    <div class="container" style="padding-top:2rem">
+      <div class="cols-8-4">
+        <div class="live" id="live" aria-live="polite">
+          <div class="live-row"><div><b id="lv-n0">Lewis Fenwick</b><br><small>Sawston 3</small></div><div class="live-score" id="lv-frames">3 – 2</div><div><b id="lv-n1">Darren Shaw</b><br><small>JP's</small></div></div>
+          <div class="live-row"><div class="live-frame" id="lv-p0">42</div><div class="wf-meta">Frame 6 · best of 9</div><div class="live-frame" id="lv-p1">17</div></div>
+          <p style="text-align:center;margin:0" id="lv-at"></p>
+          <div>
+            <p class="eyebrow" style="text-align:center">Scorer: tap the ball potted</p>
+            <div class="ball-pad" id="lv-pad"><button type="button" data-pts="1" aria-label="Red, 1">1</button><button type="button" data-pts="2" aria-label="Yellow, 2">2</button><button type="button" data-pts="3" aria-label="Green, 3">3</button><button type="button" data-pts="4" aria-label="Brown, 4">4</button><button type="button" data-pts="5" aria-label="Blue, 5">5</button><button type="button" data-pts="6" aria-label="Pink, 6">6</button><button type="button" data-pts="7" aria-label="Black, 7">7</button></div>
+          </div>
+          <div class="row" style="justify-content:center"><button type="button" class="btn btn-secondary" id="lv-miss">Miss</button><button type="button" class="btn btn-secondary" id="lv-foul">Foul (4)</button><button type="button" class="btn" id="lv-end">End frame</button></div>
+        </div>
+        <aside>
+          <h2 style="font-size:1.125rem">Frame by frame</h2>
+          <ul style="padding-left:1.25rem;display:grid;gap:0.375rem" id="lv-log"></ul>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Viewers see the same scoreboard without the buttons. Breaks of 20 and over are logged automatically and go into the player's record when the match is confirmed.</div>
+          <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Is there appetite for this beyond finals and the championship? It is the most expensive item on the list to build well.</div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>

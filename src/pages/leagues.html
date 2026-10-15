@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a snooker or billiards league near you · UK League Snooker (prototype)</title>
+  <meta name="description" content="Search UK snooker and billiards leagues by postcode, night of the week, format and more.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" class="flush">
+    <aside class="proposal" aria-label="About this prototype">
+      <div class="container">
+        <p class="proposal-eyebrow">Prototype 1 of 5 · Community home · League finder</p>
+        <div class="proposal-grid">
+          <div><h2>What we're proposing</h2><p>A league finder that works from a postcode, a town or "near me", with a map and a list that stay in step. Filters cover the things people choose a league by: snooker or billiards, the night it plays, team or singles and whether it is a handicap, veterans or summer league.</p></div>
+          <div><h2>Why</h2><p>Those details are already there, but only inside league names ("Thursday", "Veterans", "Summer", "Handicap"), so the only way to find a Thursday league near Southport is to read all 87 names. The current map is an image with 65 clickable areas, which doesn't work on a phone and can't be searched. Storing these as fields also means a league's page can say "Fridays, East of England" without anyone typing it.</p></div>
+        </div>
+        <p class="proposal-foot">Covers ideas 12 and 13. The map is a placeholder here; the build would use a real map with clustered pins.</p>
+      </div>
+    </aside>
+
+    <div class="page-head">
+      <div class="container">
+        <h1>Find a league near you</h1>
+        <p class="lead">Search by postcode or town, then narrow it down by night, game and format.</p>
+        <form id="near-form" class="omni-row" style="max-width:640px;margin-top:1rem" role="search">
+          <label class="sr-only" for="near-q">Postcode or town</label>
+          <input type="search" id="near-q" placeholder="Postcode, for example CB1 or L18">
+          <button class="btn" type="submit">Search</button>
+          <button class="btn btn-secondary" type="button" id="near-me">Near me</button>
+        </form>
+        <p class="field-error" id="near-error" hidden></p>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:1.5rem">
+      <div class="finder" id="finder">
+        <!-- Filters (R13) -->
+        <div>
+          <button type="button" class="btn btn-secondary btn-block mobile-only" id="filters-toggle" aria-expanded="false" aria-controls="finder-filters" style="margin-bottom:1rem">Filters</button>
+          <div class="finder-filters panel" id="finder-filters">
+            <fieldset><legend>Game</legend>
+              <label class="check"><input type="checkbox" name="sport" value="Snooker"> Snooker</label>
+              <label class="check"><input type="checkbox" name="sport" value="Billiards"> Billiards</label>
+            </fieldset>
+            <fieldset><legend>Night</legend>
+              <label class="check"><input type="checkbox" name="night" value="Mon"> Monday</label>
+              <label class="check"><input type="checkbox" name="night" value="Tue"> Tuesday</label>
+              <label class="check"><input type="checkbox" name="night" value="Wed"> Wednesday</label>
+              <label class="check"><input type="checkbox" name="night" value="Thu"> Thursday</label>
+              <label class="check"><input type="checkbox" name="night" value="Fri"> Friday</label>
+              <label class="check"><input type="checkbox" name="night" value="Sun"> Sunday</label>
+            </fieldset>
+            <fieldset><legend>Format</legend>
+              <label class="check"><input type="checkbox" name="format" value="Team"> Teams</label>
+              <label class="check"><input type="checkbox" name="format" value="Singles"> Singles</label>
+            </fieldset>
+            <fieldset><legend>Also</legend>
+              <label class="check"><input type="checkbox" name="extra" value="handicap"> Handicap league</label>
+              <label class="check"><input type="checkbox" name="extra" value="veterans"> Veterans</label>
+              <label class="check"><input type="checkbox" name="extra" value="summer"> Summer league</label>
+            </fieldset>
+            <div class="field"><label for="radius">Distance</label>
+              <select id="radius"><option value="0">Any distance</option><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50" selected>Within 50 miles</option></select>
+              <p class="field-hint">Applies once you have searched a postcode.</p>
+            </div>
+            <button type="button" class="btn-link" id="clear-filters">Clear filters</button>
+          </div>
+        </div>
+
+        <!-- Map and list (R12) -->
+        <div>
+          <p class="result-count" id="finder-count" aria-live="polite" style="margin-top:0"></p>
+          <div class="map-list-split">
+            <div class="map-box" aria-label="Map of leagues">
+              <span class="map-label">Map · schematic placeholder</span>
+              <div id="map-pins"></div>
+            </div>
+            <div class="league-list" id="league-list"></div>
+          </div>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Selecting a pin highlights the league in the list, and hovering a league highlights its pin. With a postcode, the list is sorted by distance and the distance filter applies. "Near me" uses a sample location (Cambridge) here; the live version asks the browser's permission first.</div>
+          <div class="wf-note query" data-note="2"><span class="wf-note-label">Question for the client</span>Night, format and the handicap, veterans and summer flags are set by each league's secretary. For leagues that don't fill them in, should we infer them from the league name during migration?</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

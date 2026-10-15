@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club · Cambridge &amp; District Snooker League (prototype)</title>
+  <meta name="description" content="Directions, tables and home teams for a Cambridge & District Snooker League club.">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+  <main id="main" class="flush">
+    <!-- @@include league-head.html -->
+    <div class="container" style="padding-top:2rem" id="club-detail">
+      <p class="crumb"><a href="~/pages/clubs.html">Clubs</a></p>
+      <h1 id="club-name">Club</h1>
+      <div class="cols-8-4">
+        <div>
+          <div class="wf-placeholder ratio-16-9">Map · club location</div>
+          <div class="row" style="margin-top:1rem"><a class="btn" id="club-dir" href="#">Directions</a></div>
+          <section aria-labelledby="cf-h" style="margin-top:2rem">
+            <h2 id="cf-h" style="font-size:1.375rem">Matches here soon</h2>
+            <ul style="list-style:none" id="club-fx"></ul>
+          </section>
+        </div>
+        <aside class="panel">
+          <dl class="kv">
+            <dt>Postcode</dt><dd id="club-pc"></dd>
+            <dt>Phone</dt><dd id="club-phone"></dd>
+            <dt>Tables</dt><dd id="club-tables"></dd>
+          </dl>
+          <h2 style="font-size:1.125rem;margin-top:1.25rem">Home teams</h2>
+          <ul style="list-style:none;display:grid;gap:0.375rem" id="club-teams"></ul>
+          <div class="wf-note" data-note="1"><span class="wf-note-label">Content</span>Opening times, parking, food and whether visitors are welcome would be added by the club or secretary. Table counts here are sample data.</div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <!-- @@include footer.html -->
+</body>
+</html>
